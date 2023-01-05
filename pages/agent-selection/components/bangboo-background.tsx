@@ -1,37 +1,10 @@
+import bangbooTileBackground from '../../../public/images/bangboo-tile-background.svg'
 
-import { useRef, useEffect } from 'react'
-
-export default function BangbooBackground(){
-    
-    let rows = 11  
-    
-    return (
-        <>
-            <div className="overflow-y-hidden absolute h-screen flex">
-                {
-                    [...Array(rows)].map((_, row) => (
-                        <TileColumn key={row} />
-                    ))
-                }
-            </div>
-        </>
-    )
-}
-
-function TileColumn(){
-    let per_column = 4 
-
-    return(
-        <>
-            <div className="bangboo-column-background" id={'column-'}>
-                {
-                    [...Array(per_column)].map((_, tile) => (
-                        <img className="" src="/images/bangboo-tile-background.svg" key={tile} style={{
-                            height: '300px'
-                        }} /> 
-                    ))
-                }
-            </div>
-        </>
-    )
+export default function BangbooBackground() {
+    return <div className='absolute -z-100 w-screen h-screen overflow-clip'>
+        <div 
+            style={{ backgroundImage: `url(${bangbooTileBackground.src})` }}
+            className="animate-bangboo-bg-slide w-[200%] h-[200%] -translate-x-[10%] -translate-y-[45%] bg-repeat bg-[length:222px_380px] -rotate-[16deg]"
+        ></div>
+    </div>
 }
