@@ -56,15 +56,13 @@ export default function Home() {
           <CharaPreview />
         </div>
         
-        { change_chara &&
-        <div className='h-screen w-screen z-[250] absolute'>
+        <div className={`h-screen w-screen z-[250] absolute ${change_chara ? 'block' : 'hidden'}`}>
            <Lottie 
               isStopped={!change_chara}
               options={defaultOptions}
               className="h-screen w-screen"
           />
         </div>
-        }
       </div>
     </>
   )
