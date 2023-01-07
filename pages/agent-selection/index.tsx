@@ -42,7 +42,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setChangeChara(false)
-    }, 500)
+    }, 800)
   }, [change_chara])
 
   return (
