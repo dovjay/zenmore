@@ -27,8 +27,8 @@ export default function Home() {
   let [change_chara, setChangeChara] = useRecoilState(AGNSLCT_change_chara)
 
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
+    loop: false,
+    autoplay: false,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
@@ -42,7 +42,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setChangeChara(false)
-    }, 800)
+    }, 600)
   }, [change_chara])
 
   return (

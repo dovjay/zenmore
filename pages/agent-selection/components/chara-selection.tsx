@@ -2,10 +2,12 @@
 import {useRecoilState, useRecoilValue } from 'recoil'
 import { useState } from 'react'
 
-import {AGNSLCT_selected_chara, AGNSLCT_charas} from '../../../store/atoms/AgentSelection'
+import {AGNSLCT_selected_chara, AGNSLCT_charas, AGNSLCT_change_chara} from '../../../store/atoms/AgentSelection'
 
 export default function CharaSelection(){ 
     let [selectedChara, setSelectedChara] = useRecoilState(AGNSLCT_selected_chara)
+    let [change_chara, setChangeChara] = useRecoilState(AGNSLCT_change_chara)
+
     let charas = useRecoilValue(AGNSLCT_charas)
 
     let [hoverNow, setHoverNow] = useState(-1)
@@ -23,7 +25,12 @@ export default function CharaSelection(){
                     charas.map((chara, index) => (
                         <div className={`chara-card relative mx-[-1.9em] skew-x-[-16deg] ${!chara.empty ? 'cursor-pointer' : ''}`} 
                             onMouseEnter={() => setHoverNow(index)} key={index} style={{}}
-                            onClick={() => setSelectedChara(index)}
+                            onClick={() => {
+                                setTimeout(() => {
+                                    setSelectedChara(index)
+                                }, 400)
+                                setChangeChara(true)
+                            }}
                         >
                             <div className="clipped"
                                 style={{
