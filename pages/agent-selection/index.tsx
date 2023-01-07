@@ -1,8 +1,3 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
-
 import MenuCorner from './components/menu-corner'
 import CharaSelection from './components/chara-selection'
 import CharaPreview from './components/chara-preview'
@@ -25,8 +20,8 @@ export default function Home() {
   let [change_chara, setChangeChara] = useRecoilState(AGNSLCT_change_chara)
 
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
+    loop: false,
+    autoplay: false,
     animationData: animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice"
