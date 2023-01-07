@@ -3,8 +3,6 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 import MenuCorner from './components/menu-corner'
 import CharaSelection from './components/chara-selection'
 import CharaPreview from './components/chara-preview'
@@ -36,14 +34,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    setCharas(chara_data?.chara)
-  }, [])
+    setCharas(chara_data.chara)
+  }, [setCharas])
 
   useEffect(() => {
     setTimeout(() => {
       setChangeChara(false)
     }, 500)
-  }, [change_chara])
+  }, [change_chara, setChangeChara])
 
   return (
     <>

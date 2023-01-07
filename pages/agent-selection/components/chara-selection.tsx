@@ -6,7 +6,7 @@ import {AGNSLCT_selected_chara, AGNSLCT_charas} from '../../../store/atoms/Agent
 
 export default function CharaSelection(){ 
     let [selectedChara, setSelectedChara] = useRecoilState(AGNSLCT_selected_chara)
-    let charas = useRecoilValue(AGNSLCT_charas)
+    let charas: any = useRecoilValue(AGNSLCT_charas)
 
     let [hoverNow, setHoverNow] = useState(-1)
  
@@ -20,7 +20,7 @@ export default function CharaSelection(){
                 </svg>
                 <div className="chara-card-container skew-x-[16deg]" onMouseLeave={() => setHoverNow(-1)}>  
                 {
-                    charas.map((chara, index) => (
+                    charas.map((chara: any, index: any) => (
                         <div className={`chara-card relative mx-[-1.9em] skew-x-[-16deg] ${!chara.empty ? 'cursor-pointer' : ''}`} 
                             onMouseEnter={() => setHoverNow(index)} key={index} style={{}}
                             onClick={() => setSelectedChara(index)}
