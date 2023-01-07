@@ -1,0 +1,80 @@
+{
+    "chara": [
+        {
+            "name": "Anby Demara",
+            "nickname" : "Anby",
+            "image": "images/charas/Anby Demara.svg",
+            "big_charas": "images/big-charas/Anby Demara.svg"
+        },  
+        {
+            "name": "Anton Ivanov",
+            "nickname" : "Anton",
+            "image": "images/charas/Anton Ivanov.svg",
+            "big_charas": "images/big-charas/Anton Ivanov.svg"
+        },  
+        {
+            "name": "Ben Bigger",
+            "nickname" : "Ben",
+            "image": "images/charas/Ben Bigger.svg",
+            "big_charas": "images/big-charas/Ben Bigger.svg"
+        },  
+        {
+            "name": "Billy Kid",
+            "nickname" : "Billy",
+            "image": "images/charas/Billy Kid.svg",
+            "big_charas": "images/big-charas/Billy Kid.svg"
+        },  
+        {
+            "name": "Corin Wickes",
+            "nickname" : "Corin",
+            "image": "images/charas/Corin Wickes.svg",
+            "big_charas": "images/big-charas/Corin Wickes.svg"
+        },  
+        {
+            "name": "Hoshimi Miyabi",
+            "nickname" : "Miyabi",
+            "image": "images/charas/Hoshimi Miyabi.svg",
+            "big_charas": "images/big-charas/Hoshimi Miyabi.svg"
+        },  
+        {
+            "name": "Koleda Belobog",
+            "nickname" : "Koleda",
+            "image": "images/charas/Koleda Belobog.svg",
+            "big_charas": "images/big-charas/Koleda Belobog.svg"
+        },  
+        {
+            "name": "Nekomiya Mana",
+            "nickname" : "Nekomiya",
+            "image": "images/charas/Nekomiya Mana.svg",
+            "big_charas": "images/big-charas/Nekomiya Mana.svg"
+        },  
+        {
+            "name": "Nicole Demara",
+            "nickname" : "Nicole",
+            "image": "images/charas/Nicole Demara.svg",
+            "big_charas": "images/big-charas/Nicole Demara.svg"
+        },  
+        {
+            "name": "Soldier 11",
+            "nickname" : "Soldier 11",
+            "image": "images/charas/Soldier 11.svg",
+            "big_charas": "images/big-charas/Soldier 11.svg"
+        },  
+        {
+            "name": "Soukaku",
+            "nickname" : "Soukaku",
+            "image": "images/charas/Soukaku.svg",
+            "big_charas": "images/big-charas/Soukaku.svg"
+        },  
+        {
+            "name": "Von Lycaon",
+            "nickname" : "Von",
+            "image": "images/charas/Von Lycaon.svg",
+            "big_charas": "images/big-charas/Von Lycaon.svg"
+        },  
+        {
+            "empty": true,
+            "image": "images/charas/empty-chara.svg"
+        }
+    ]
+}
