@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
 
-const inter = Inter({ subsets: ['latin'] })
+import CinematicBar from '../components/CinematicBar'
+import DynamicVideoBackground from '../components/DynamicVideoBackground'
 
 export default function Home() {
   return (
@@ -14,9 +13,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <DynamicVideoBackground />
+      <CinematicBar position="top">
+        <div className='flex items-center h-full px-8 py-4'>
+          <Image src="/ZZZ Logo.png" alt="ZZZ Logo" width={64} height={68} />
+          <h1 className='ml-8 text-4xl font-bold font-display text-white'>ZENMORE</h1>
+          <button className='ml-auto text-3xl text-white font-bold'>Support Us!</button>
+        </div>
+      </CinematicBar>
+      <CinematicBar position="bottom" />
     </>
   )
 }
