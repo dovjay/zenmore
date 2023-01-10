@@ -8,7 +8,7 @@ export default function VideoBackground() {
   const randomVideo = async (event: any): Promise<number> => {
     let index: number = GenerateRandomNumber(4)
 
-    if (index === currentIndex) randomVideo(event)
+    if (index === currentIndex) return randomVideo(event)
 
     if (event) await event.target.play()
 
@@ -16,13 +16,18 @@ export default function VideoBackground() {
     return index
   }
 
-  return <video 
-      className="fixed -z-10 h-screen w-screen object-cover bg-black select-none"
-      autoPlay muted
-      onEnded={e => randomVideo(e)}
-      src={videoData[currentIndex].src}
-    >
-  </video>
+  return <div className="fixed -z-10 h-screen w-screen">
+  <video 
+    className="w-full h-full object-cover bg-black select-none"
+    autoPlay muted
+    onEnded={e => randomVideo(e)}
+    src={videoData[currentIndex].src}
+  />
+  <div className="text-white text-2xl absolute right-8 bottom-28">
+    <span className="">in frame </span>
+    <span className="font-bold">{videoData[currentIndex].name}</span>
+  </div>
+  </div>
 }
 
 interface VideoInterface {

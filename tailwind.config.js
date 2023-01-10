@@ -14,11 +14,16 @@ module.exports = {
         selectButtonSlide: {
           '0%': { 'background-position': '0 50%' },
           '100%': { 'background-position': '-100% 50%'}
+        },
+        newsSlide: {
+          '0%': { 'translate': '24rem' },
+          '100%': { 'translate': '-100%' }
         }
       },
       animation: {
         'bangboo-bg-slide': 'bangbooBgSlide 10s linear infinite',
         'select-button-slide': 'selectButtonSlide 2s linear infinite',
+        'news-slide': 'newsSlide 10s linear infinite',
       },
       fontFamily: {
         'display': ['Oswald', 'display']
