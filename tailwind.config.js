@@ -26,7 +26,8 @@ module.exports = {
         'news-slide': 'newsSlide 10s linear infinite',
       },
       fontFamily: {
-        'display': ['Oswald', 'display']
+        'display': ['Oswald', 'display'],
+        'rocksalt': ['Rock Salt', 'display']
       }
     },
   },

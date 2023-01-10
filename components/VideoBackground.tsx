@@ -2,7 +2,9 @@ import { useState } from "react"
 
 import GenerateRandomNumber from "../lib/GenerateRandomNumber"
 
-export default function VideoBackground() {
+export default function VideoBackground(props: any) {
+  let { displayInframe } = props
+
   const [currentIndex, setCurrentIndex] = useState(GenerateRandomNumber(4))
 
   const randomVideo = async (event: any): Promise<number> => {
@@ -23,10 +25,15 @@ export default function VideoBackground() {
     onEnded={e => randomVideo(e)}
     src={videoData[currentIndex].src}
   />
-  <div className="text-white text-2xl absolute right-8 bottom-28">
-    <span className="">in frame </span>
-    <span className="font-bold">{videoData[currentIndex].name}</span>
-  </div>
+  {
+    displayInframe
+    ? (
+    <div className="text-white text-2xl absolute right-8 bottom-28">
+      <span className="">in frame </span>
+      <span className="font-bold">{videoData[currentIndex].name}</span>
+    </div>
+    ) : ''
+  }
   </div>
 }
 

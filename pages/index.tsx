@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import CinematicBar from '../components/CinematicBar'
-import DynamicVideoBackground from '../components/DynamicVideoBackground'
+import DynamicVideoBackground from '../components/dynamic/DynamicVideoBackground'
 import NewsSlider from '../components/NewsSlider'
 import MenuLinkCard from '../components/MenuLinkCard'
 
@@ -15,7 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/ZZZ Logo.png" />
       </Head>
-      <DynamicVideoBackground />
+      <DynamicVideoBackground displayInframe={true} />
       <CinematicBar position="top">
         <div className='flex items-center h-full px-8 py-4'>
           <Image src="/ZZZ Logo.png" alt="ZZZ Logo" width={64} height={68} />
