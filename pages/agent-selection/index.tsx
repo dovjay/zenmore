@@ -11,8 +11,7 @@ import { useEffect, useRef } from 'react'
 
 import chara_data from './data.json'
 
-import Lottie from 'react-lottie';
-import animationData from '../../public/Zenmore_Transition.json';
+import animationData from '../../public/Zenmore_Transition.json'
 
 export default function Home() {
 
@@ -50,11 +49,7 @@ export default function Home() {
         </div>
         
         <div className={`h-screen w-screen z-[250] absolute ${change_chara ? 'block' : 'hidden'}`}>
-           <Lottie 
-              isStopped={!change_chara}
-              options={defaultOptions}
-              className="h-screen w-screen"
-          />
+
         </div>
       </div>
     </>
