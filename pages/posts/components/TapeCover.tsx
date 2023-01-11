@@ -1,15 +1,23 @@
 import Image from "next/image"
 
-export default function TapeCover(props: object) {
+interface TapeCoverInterface {
+  isHover?: boolean,
+  isClicked?: boolean
+}
+
+export default function TapeCover(props: TapeCoverInterface) {
+  let isHover: string = props.isHover ? 'group-hover:-translate-x-[40%]' : ''
+  let isClicked: string  = props.isClicked ? '-translate-x-[25vw] opacity-0' : ''
+
   return <div 
-    className="absolute w-fit h-fit overflow-hidden group-hover:-translate-x-[40%] transition duration-500"
+    className={`absolute w-fit h-fit overflow-hidden transition duration-500 ${isHover} ${isClicked}`}
   >
     <div 
       className="w-32 h-[110%] absolute rotate-[40deg] translate-x-[5.5rem] translate-y-[1.5rem] overflow-hidden"
     >
       <div 
-        style={{ backgroundImage: "url('/images/Thumbnail Article.png')"}}
-        className="-rotate-[40deg] bg-center bg-[length:250%] bg-top w-[300%] h-full g-no-repeat -translate-x-[6rem] -top-4 absolute"
+        style={{ backgroundImage: "url('/images/Thumbnail Article.png')" }}
+        className="-rotate-[40deg] bg-[length:250%] bg-top w-[300%] h-full g-no-repeat -translate-x-[6rem] -top-4 absolute"
       />
       <div className="-rotate-[40deg] w-[20rem] h-[14.5rem] bg-black absolute bottom-0" />
       <div className="h-full w-1 bg-black absolute top-10 right-10" />

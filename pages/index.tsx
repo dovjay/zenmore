@@ -27,7 +27,7 @@ export default function Home() {
       <CinematicBar position="bottom">
         <div className='flex items-center justify-center gap-1'>
           <MenuLinkCard href="/agent-selection" icon="/icons/Agents Icon.png" name="Agents" />
-          <MenuLinkCard href="/game-info" icon="/icons/Proxy Icon.png" name="Game Info" />
+          <MenuLinkCard href="/posts" icon="/icons/Proxy Icon.png" name="Game Info" />
         </div>
       </CinematicBar>
       <footer className='text-white text-center text-md fixed bottom-0 bg-black w-screen'>
