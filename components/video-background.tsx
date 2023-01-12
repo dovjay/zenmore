@@ -1,28 +1,29 @@
 import { useState } from "react"
 
-import GenerateRandomNumber from "../lib/GenerateRandomNumber"
+import GenerateRandomNumber from "../lib/generate-random-number"
 
 export default function VideoBackground(props: any) {
-  let { displayInframe } = props
+  let { displayInframe, isScrollPlay } = props
 
   const [currentIndex, setCurrentIndex] = useState(GenerateRandomNumber(4))
 
   const randomVideo = async (event: any): Promise<number> => {
+    if (isScrollPlay) return currentIndex
+
     let index: number = GenerateRandomNumber(4)
 
     if (index === currentIndex) return randomVideo(event)
 
     if (event) await event.target.play()
 
-    setCurrentIndex(index)
     return index
   }
 
   return <div className="fixed -z-10 h-screen w-screen">
   <video 
     className="w-full h-full object-cover bg-black select-none"
-    autoPlay muted
-    onEnded={e => randomVideo(e)}
+    autoPlay muted loop={isScrollPlay}
+    onEnded={async e => setCurrentIndex(await randomVideo(e))}
     src={videoData[currentIndex].src}
   />
   {

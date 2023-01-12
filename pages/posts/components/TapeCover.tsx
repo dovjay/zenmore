@@ -10,7 +10,7 @@ export default function TapeCover(props: TapeCoverInterface) {
   let isClicked: string  = props.isClicked ? '-translate-x-[25vw] opacity-0' : ''
 
   return <div 
-    className={`absolute w-fit h-fit overflow-hidden transition duration-500 ${isHover} ${isClicked}`}
+    className={`absolute w-fit h-fit rounded-lg overflow-hidden transition duration-500 ${isHover} ${isClicked}`}
   >
     <div 
       className="w-32 h-[110%] absolute rotate-[40deg] translate-x-[5.5rem] translate-y-[1.5rem] overflow-hidden"

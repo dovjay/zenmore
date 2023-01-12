@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    scroll-behavior: smooth;
+@layer utilities {
+    .overflow-scroll-hidden::-webkit-scrollbar {
+        display: none;
+        overflow: scroll;
+    }
+
+    .overflow-scroll-hidden {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow: scroll;
+    }
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
 }

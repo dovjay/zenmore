@@ -1,8 +1,14 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
+
+export interface PostDataInterface {
+  id: string,
+  contentMd: any,
+  date: string,
+  thumbnail: string,
+  title: string
+}
 
 const postsDirectory: string = path.join(process.cwd(), 'posts')
 
@@ -20,21 +26,17 @@ export function getAllPostIds(): object {
   })
 }
 
-export async function getPostData(id: string) {
+export async function getPostData(id: string): Promise<PostDataInterface> {
   const fullPath: string = path.join(postsDirectory, `${id}.md`)
   const fileContents: string = fs.readFileSync(fullPath, 'utf-8')
 
-  const matterResult = matter(fileContents)
+  const matterResult: any = matter(fileContents)
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
-  
-  const contentHtml: string = processedContent.toString()
+  const contentMd = matterResult.content
 
   return {
     id,
-    contentHtml,
+    contentMd,
     ...matterResult.data
   }
 }

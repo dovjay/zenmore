@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
-import CinematicBar from '../components/CinematicBar'
-import DynamicVideoBackground from '../components/dynamic/DynamicVideoBackground'
-import NewsSlider from '../components/NewsSlider'
-import MenuLinkCard from '../components/MenuLinkCard'
+import CinematicBar from '../components/cinematic-bar'
+import DynamicVideoBackground from '../components/dynamic/dynamic-video-background'
+import NewsSlider from '../components/news-slider'
+import MenuLinkCard from '../components/menu-link-card'
 
 export default function Home() {
   return (

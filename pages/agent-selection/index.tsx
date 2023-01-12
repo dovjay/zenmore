@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 
 import chara_data from './data.json'
 
-import animationData from '../../public/Zenmore_Transition.json'
+import animationData from '../../public/lottiefiles/Zenmore_Transition.json'
 
 export default function AgentSelection() {
 

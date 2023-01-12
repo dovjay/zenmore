@@ -1,4 +1,4 @@
-import DynamicVideoBackground from "../../components/dynamic/DynamicVideoBackground"
+import DynamicVideoBackground from "../../components/dynamic/dynamic-video-background"
 import MenuCorner from "../../components/menu-corner"
 import TapeCard from "./components/TapeCard"
 
