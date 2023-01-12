@@ -11,7 +11,7 @@ import { getAllPostIds, getPostData, PostDataInterface } from "../../lib/posts"
 export default function Post({ postData }: { postData: PostDataInterface }) {
   const router = useRouter()
 
-  let { title, date, id, contentMd, thumbnail } = postData
+  let { title, contentMd, thumbnail } = postData
 
   return <div className="w-screen h-screen flex justify-center">
     <VideoBackground isScrollPlay={true} />

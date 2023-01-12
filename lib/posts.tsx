@@ -7,7 +7,8 @@ export interface PostDataInterface {
   contentMd: any,
   date: string,
   thumbnail: string,
-  title: string
+  title: string,
+  description: string,
 }
 
 const postsDirectory: string = path.join(process.cwd(), 'posts')
@@ -24,6 +25,16 @@ export function getAllPostIds(): object {
       },
     }
   })
+}
+
+export async function getAllPosts() {
+  const fileNames = fs.readdirSync(postsDirectory)
+
+  return await Promise.all(fileNames.map(async (fileName: string) => {
+    const id: string = fileName.replace(/\.md$/, '')
+
+    return await getPostData(id)
+  }))
 }
 
 export async function getPostData(id: string): Promise<PostDataInterface> {

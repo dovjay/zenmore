@@ -1,11 +1,15 @@
 import Image from "next/image"
+import { PostDataInterface } from "../../../lib/posts"
 
 interface TapeImageInterface {
   isHover?: boolean,
-  isClicked?: boolean
+  isClicked?: boolean,
+  postData: PostDataInterface
 }
 
-export default function TapeCover(props: TapeImageInterface) {
+export default function TapeImage(props: TapeImageInterface) {
+  let { title } = props.postData
+
   let isHover: string = props.isHover ? 'group-hover:translate-x-[40%]' : ''
   let isClicked: string  = props.isClicked ? 'translate-x-[25vw] opacity-0' : ''
 
@@ -18,8 +22,8 @@ export default function TapeCover(props: TapeImageInterface) {
     </div>
     <div className="absolute mx-auto inset-x-0 top-0 bottom-8 flex">
       <div className="my-auto w-full mr-3 rotate-90">
-        <span className="w-3/4 h-32 font-rocksalt text-2xl font-bold block ml-12 overflow-hidden">
-          Title Text for The Wicked
+        <span className="w-3/4 h-32 font-rocksalt text-xl font-bold leading-relaxed block mt-4 ml-12 overflow-hidden">
+          {title}
         </span>
       </div>
     </div>
