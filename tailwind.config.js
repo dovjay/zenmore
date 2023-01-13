@@ -23,7 +23,7 @@ module.exports = {
       animation: {
         'bangboo-bg-slide': 'bangbooBgSlide 10s linear infinite',
         'select-button-slide': 'selectButtonSlide 2s linear infinite',
-        'news-slide': 'newsSlide 10s linear infinite',
+        'news-slide': 'newsSlide 10s linear infinite'
       },
       fontFamily: {
         'display': ['Oswald', 'display'],
