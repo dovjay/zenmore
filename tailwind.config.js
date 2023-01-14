@@ -11,6 +11,14 @@ module.exports = {
           '0%': { 'background-position': '0 0' },
           '100%': { 'background-position': '-25% 51%'}
         },
+        filmRollMainSlide: {
+          '0%': { 'background-position': '0 0' },
+          '100%': { 'background-position': '-25% 51%'}
+        },
+        filmRollDecoSlide: {
+          '0%': { 'background-position': '-0% 0%'},
+          '100%': { 'background-position': '0 -150%' } 
+        },
         selectButtonSlide: {
           '0%': { 'background-position': '0 50%' },
           '100%': { 'background-position': '-100% 50%'}
@@ -21,6 +29,8 @@ module.exports = {
         }
       },
       animation: {
+        'film-roll-main-slide': 'filmRollMainSlide 25s linear infinite',
+        'film-roll-deco-slide': 'filmRollDecoSlide 10s linear infinite',
         'bangboo-bg-slide': 'bangbooBgSlide 10s linear infinite',
         'select-button-slide': 'selectButtonSlide 2s linear infinite',
         'news-slide': 'newsSlide 10s linear infinite'
