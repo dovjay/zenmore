@@ -1,11 +1,14 @@
-import { useState } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 
 import GenerateRandomNumber from "../lib/generate-random-number"
 
 export default function VideoBackground(props: any) {
-  let { displayInframe, isScrollPlay } = props
+  let { displayInframe, isScrollPlay, scrollProgress } = props
+
+  const video: any = useRef()
 
   const [currentIndex, setCurrentIndex] = useState(GenerateRandomNumber(4))
+  const [maxDuration, setMaxDuration] = useState(0)
 
   const randomVideo = async (event: any): Promise<number> => {
     if (isScrollPlay) return currentIndex
@@ -19,11 +22,34 @@ export default function VideoBackground(props: any) {
     return index
   }
 
+  const setupScrollPlay = () => {
+    if (!isScrollPlay) return
+    setMaxDuration(video.current.duration)
+    video.current.currentTime = 1
+    window.requestAnimationFrame(scrollPlay)
+  }
+
+  const scrollPlay = useCallback(() => {
+    if (!isScrollPlay) return
+    if (scrollProgress === null) return
+
+    let progress: number = Math.floor(scrollProgress * maxDuration / 100)
+    video.current.currentTime = progress
+  }, [scrollProgress, maxDuration, isScrollPlay])
+
+  useEffect(() => {
+    scrollPlay()
+  }, [scrollProgress, scrollPlay])
+
   return <div className="fixed -z-10 h-screen w-screen">
   <video 
+    ref={video}
     className="w-full h-full object-cover bg-black select-none"
-    autoPlay muted loop={isScrollPlay}
+    autoPlay={!isScrollPlay} 
+    loop={isScrollPlay} 
+    muted
     onEnded={async e => setCurrentIndex(await randomVideo(e))}
+    onLoadedMetadata={setupScrollPlay}
     src={videoData[currentIndex].src}
   />
   {
