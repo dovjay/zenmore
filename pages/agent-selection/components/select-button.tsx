@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
 
 import { AGNSLCT_change_chara } from '../../../store/atoms/AgentSelection'
@@ -5,10 +6,18 @@ import { AGNSLCT_change_chara } from '../../../store/atoms/AgentSelection'
 export default function SelectButton(){
 
     let [change_chara, setChangeChara] = useRecoilState(AGNSLCT_change_chara)    
+    const router = useRouter()
+
+    const onSubmit = () => {
+        setChangeChara(true)
+        setTimeout(() => {
+            router.push('/agent-info')
+        }, 700)
+    }
 
     return (
         <>
-            <div style={{cursor:'pointer'}} onClick={ () => setChangeChara(true)}>
+            <div style={{cursor:'pointer'}} onClick={onSubmit}>
                 <svg className="svg absolute">
                     <clipPath id="select-button-path" clipPathUnits="objectBoundingBox"><path d="M1,0 V1 L0,0.5 L1,0"></path></clipPath>
                 </svg>

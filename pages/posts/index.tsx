@@ -100,7 +100,7 @@ export async function getStaticProps() {
     date: posts[0].date,
     id: posts[0].id,
     thumbnail: posts[0].thumbnail,
-    contentMd: posts[0].contentMd,
+    content: posts[0].content,
     description: posts[0].description
   }) 
   }
