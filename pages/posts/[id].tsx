@@ -47,7 +47,7 @@ export default function Post({ postData }: { postData: PostDataInterface }) {
       <div className="relative w-full h-[32rem] overflow-clip rounded-tr-[5rem] rounded-bl-[5rem] mt-8">
         <Image src={thumbnail} alt={`${title} Thumbnail`} fill className="object-cover" />
       </div>
-      <h1 className="text-5xl font-bold mt-12 text-white">
+      <h1 className="text-6xl font-bold mt-12 text-white">
         {title}
       </h1>
       <div 
@@ -60,7 +60,7 @@ export default function Post({ postData }: { postData: PostDataInterface }) {
 }
 
 export function getStaticPaths() {
-  const paths = getAllPostIds()
+  const paths = getAllPostIds('game-info')
   return {
     paths,
     fallback: false
@@ -70,7 +70,7 @@ export function getStaticPaths() {
 export async function getStaticProps(props: any) {
   let { params } = props
 
-  const postData: PostDataInterface = await getPostData(params.id)
+  const postData: PostDataInterface = await getPostData(params.id, 'game-info')
 
   return {
     props: { postData }

@@ -9,13 +9,16 @@ export interface PostDataInterface {
   date: string,
   thumbnail: string,
   title: string,
-  description: string,
+  description: string
 }
+
+type PostCategory = "game-info" | null
 
 const postsDirectory: string = path.join(process.cwd(), 'posts')
 
-export function getAllPostIds(): object {
-  const fileNames = fs.readdirSync(postsDirectory)
+export function getAllPostIds(category?: PostCategory): object {
+  const dir: string = path.join(postsDirectory, category || '')
+  const fileNames = fs.readdirSync(dir)
 
   return fileNames.map((fileName: string) => {
     const id: string = fileName.replace(/\.mdx$/, '')
@@ -28,18 +31,26 @@ export function getAllPostIds(): object {
   })
 }
 
-export async function getAllPosts() {
-  const fileNames = fs.readdirSync(postsDirectory)
+export async function getAllPosts(category?: PostCategory): Promise<PostDataInterface[]> {
+  const dir: string = path.join(postsDirectory, category || '')
+  const fileNames = fs.readdirSync(dir)
 
-  return await Promise.all(fileNames.map(async (fileName: string) => {
+  let posts: PostDataInterface[] = await Promise.all(fileNames.map(async (fileName: string) => {
     const id: string = fileName.replace(/\.mdx$/, '')
 
-    return await getPostData(id)
+    return await getPostData(id, category)
   }))
+
+  while (posts.length < 7) {
+    posts.push(...posts)
+  }
+
+  return posts
 }
 
-export async function getPostData(id: string): Promise<PostDataInterface> {
-  const fullPath: string = path.join(postsDirectory, `${id}.mdx`)
+export async function getPostData(id: string, category?: PostCategory): Promise<PostDataInterface> {
+  const dir: string = path.join(postsDirectory, category || '')
+  const fullPath: string = path.join(dir, `${id}.mdx`)
   const file: string = fs.readFileSync(fullPath, 'utf-8')
 
   const matterResult: any = matter(file)

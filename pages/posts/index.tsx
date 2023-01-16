@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { SetStateAction, useState } from "react"
 
 import DynamicVideoBackground from "../../components/dynamic/dynamic-video-background"
 import MenuCorner from "../../components/menu-corner"
@@ -51,10 +51,12 @@ export default function GameInfo(props: any) {
       temp.shift()
       temp.push(posts[nextIndex])
   
-      setDisplayPosts(temp)
       setDirection('')
+      setDisplayPosts(temp)
       setDisabled(false)
     }, slideDuration)
+
+    
   }
 
   return <div>
@@ -68,7 +70,7 @@ export default function GameInfo(props: any) {
       <button className="z-10 bg-blue-300 h-10 w-10" disabled={disabled} onClick={prevPost}>prev</button>
       <div 
         style={{ WebkitMaskImage: "-webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(15%, rgba(0,0,0,1)), color-stop(85%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)))" }}
-        className="w-7/12 h-fit overflow-hidden"
+        className={`w-7/12 h-fit overflow-hidden ${disabled && "pointer-events-none"}`}
       >
         <div
           className={`grid grid-flow-col gap-4 content-center justify-center h-[48rem] ${directionClass}`}
@@ -76,7 +78,7 @@ export default function GameInfo(props: any) {
           {
             displayPosts.map((post: PostDataInterface, index: number) => (
               <TapeCard 
-                key={post.title} postData={post} 
+                key={post.id + index} postData={post} 
                 active={direction === 'left' ? index === 2 : direction === 'right' ? index === 4 : index === 3} 
               />
             ))
@@ -89,25 +91,11 @@ export default function GameInfo(props: any) {
 }
 
 export async function getStaticProps() {
-  const posts: PostDataInterface[] = await getAllPosts()
-
-  // mock posts data
-  let mockPosts: PostDataInterface[] = []
-
-  for (let i = 0; i < 7; i++) {
-   mockPosts.push({ 
-    title: `${posts[0].title} - ${i}`,
-    date: posts[0].date,
-    id: posts[0].id,
-    thumbnail: posts[0].thumbnail,
-    content: posts[0].content,
-    description: posts[0].description
-  }) 
-  }
+  const posts: PostDataInterface[] = await getAllPosts('game-info')
 
   return {
     props: {
-      posts: mockPosts,
+      posts: posts,
     }
   }
 }
