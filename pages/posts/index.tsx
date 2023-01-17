@@ -1,4 +1,5 @@
-import { SetStateAction, useState } from "react"
+import { useState } from "react"
+import Image from "next/image"
 
 import DynamicVideoBackground from "../../components/dynamic/dynamic-video-background"
 import MenuCorner from "../../components/menu-corner"
@@ -67,7 +68,9 @@ export default function GameInfo(props: any) {
     <MenuCorner />
 
     <div className="h-screen w-screen flex justify-center items-center">
-      <button className="z-10 bg-blue-300 h-10 w-10" disabled={disabled} onClick={prevPost}>prev</button>
+      <button className="z-10" disabled={disabled} onClick={prevPost}>
+        <Image src="/icons/Left Arrow.png" alt="Left Arrow" width={100} height={64} />
+      </button>
       <div 
         style={{ WebkitMaskImage: "-webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(15%, rgba(0,0,0,1)), color-stop(85%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)))" }}
         className={`w-7/12 h-fit overflow-hidden ${disabled && "pointer-events-none"}`}
@@ -85,7 +88,9 @@ export default function GameInfo(props: any) {
           }
         </div>
       </div>
-      <button className="z-10 bg-blue-300 h-10 w-10" disabled={disabled} onClick={nextPost}>next</button>
+      <button className="z-10" disabled={disabled} onClick={nextPost}>
+        <Image src="/icons/Right Arrow.png" alt="Right Arrow" width={100} height={64} />
+      </button>
     </div>
   </div>
 }

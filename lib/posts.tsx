@@ -38,7 +38,7 @@ export async function getAllPosts(category?: PostCategory): Promise<PostDataInte
   let posts: PostDataInterface[] = await Promise.all(fileNames.map(async (fileName: string) => {
     const id: string = fileName.replace(/\.mdx$/, '')
 
-    return await getPostData(id, category)
+    return await getPostData(id, category, true)
   }))
 
   while (posts.length < 7) {
@@ -48,7 +48,7 @@ export async function getAllPosts(category?: PostCategory): Promise<PostDataInte
   return posts
 }
 
-export async function getPostData(id: string, category?: PostCategory): Promise<PostDataInterface> {
+export async function getPostData(id: string, category?: PostCategory, noContent?: boolean): Promise<PostDataInterface> {
   const dir: string = path.join(postsDirectory, category || '')
   const fullPath: string = path.join(dir, `${id}.mdx`)
   const file: string = fs.readFileSync(fullPath, 'utf-8')
@@ -59,7 +59,7 @@ export async function getPostData(id: string, category?: PostCategory): Promise<
 
   return {
     id,
-    content: mdxSource,
+    content: noContent ? '' : mdxSource,
     ...matterResult.data
   }
 }
