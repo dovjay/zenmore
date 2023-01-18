@@ -3,14 +3,14 @@ import Image from "next/image"
 
 import DynamicVideoBackground from "../../components/dynamic/dynamic-video-background"
 import MenuCorner from "../../components/menu-corner"
-import TapeCard from "./components/tape-card"
+import TapeCard from "../../components/tape-card"
 
 import { getAllPosts, PostDataInterface } from "../../lib/posts"
 
 export default function GameInfo(props: any) {
   let { posts } = props
 
-  const [displayPosts, setDisplayPosts] = useState(posts.slice(-3).concat(posts.slice(0, 4)))
+  const [displayPosts, setDisplayPosts] = useState<PostDataInterface[]>(posts.slice(-3).concat(posts.slice(0, 4)))
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState('')
   const [disabled, setDisabled] = useState(false)

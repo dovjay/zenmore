@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { PostDataInterface } from "../../../lib/posts"
+import { PostDataInterface } from "../lib/posts"
 
 interface TapeCoverInterface {
   isHover?: boolean,
