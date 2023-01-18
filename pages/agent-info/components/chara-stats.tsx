@@ -6,10 +6,10 @@ export default function CharaStats() {
     return <div className="bg-black text-white rounded-[1rem] border-4 border-black w-full h-fit bottom-0 mb-20 overflow-hidden relative">
         <div 
             style={{ backgroundImage: `url('/textures/Diagonal Texture 600.png')` }}
-            className="absolute w-full h-full opacity-10 bg-[length:28rem]"
+            className="absolute w-full h-full opacity-10 bg-[length:24rem]"
         />
         <div className="relative">
-            <h4 className="font-bold text-md ml-8 my-4">AGENT INFO</h4>
+            <h4 className="font-bold text-md ml-8 my-4 tracking-wider">AGENT INFO</h4>
 
             <section className="bg-black p-8 flex items-center">
                 <div className="w-full">

@@ -10,7 +10,7 @@ module.exports = {
       keyframes: {
         bangbooBgSlide: {
           '0%': { 'background-position': '0 0' },
-          '100%': { 'background-position': '-222px 380px'}
+          '100%': { 'background-position': '-333px 570px'}
         },
         filmRollSlide: {
           '0%': { 'background-position': '0 0' },
@@ -30,8 +30,8 @@ module.exports = {
         }
       },
       animation: {
-        'film-roll-slide': 'filmRollSlide 5s linear infinite',
-        'agent-roll-slide': 'agentRollSlide 7s linear infinite',
+        'film-roll-slide': 'filmRollSlide 15s linear infinite',
+        'agent-roll-slide': 'agentRollSlide 20s linear infinite',
         'bangboo-bg-slide': 'bangbooBgSlide 7s linear infinite',
         'select-button-slide': 'selectButtonSlide 2s linear infinite',
         'news-slide': 'newsSlide 10s linear infinite'
