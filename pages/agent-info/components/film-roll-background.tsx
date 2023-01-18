@@ -1,24 +1,38 @@
-import FilmRoll from '../../../public/images/film-roll-main.svg'
-import FilmRollDeco1 from '../../../public/images/film-roll-deco.svg'
-
 export default function FilmRollBackground() {
     return <>
-        <div className='w-screen overflow-clip h-screen absolute'>
-            <div style={{ backgroundImage: `url(${FilmRollDeco1.src})` }}
-                className="animate-film-roll-deco-slide w-[10%] h-[400%] bg-repeat absolute rotate-[-10deg] left-[-0%] top-[-50%] "
-            ></div> 
-            <div style={{ backgroundImage: `url(${FilmRoll.src})` }}
-                className="animate-film-roll-main-slide w-[10%] h-[200%] bg-repeat absolute rotate-[-10deg] left-[0%] top-[-50%] "
-            ></div> 
-            <div className="animate-film-roll-deco-slide w-[10%] h-[400%] bg-repeat absolute left-[18.8%] rotate-[-10deg] top-[-50%]" 
-                style={{ backgroundImage: `url(${FilmRollDeco1.src})` }} > 
-            </div> 
-            <div className="animate-film-roll-main-slide w-[10%] h-[200%] bg-repeat absolute left-[20%] rotate-[-10deg] top-[-50%]" 
-                style={{ backgroundImage: `url(${FilmRoll.src})` }} > 
-            </div> 
-            <div className="animate-film-roll-deco-slide w-[10%] h-[400%] bg-repeat absolute left-[38.9%] rotate-[-10deg] top-[-50%]" 
-                style={{ backgroundImage: `url(${FilmRollDeco1.src})` }} > 
-            </div> 
+        <div className='w-screen overflow-clip h-screen relative'>
+            <div className="w-fit h-full flex -rotate-[16deg] absolute -left-48 -top-12">
+                <div className='w-48 h-screen bg-black'>
+                    <div
+                        style={{ backgroundImage: `url("/images/agent-roll.svg")` }}
+                        className="w-full h-[150%] bg-[length:100%] bg-repeat-y animate-agent-roll-slide"
+                    />
+                </div>
+                <div className='w-48 h-screen bg-black'>
+                    <div
+                        style={{ backgroundImage: `url("/images/film-roll.svg")` }}
+                        className="w-full h-[150%] bg-[length:100%] bg-repeat-y animate-film-roll-slide"
+                    />
+                </div>
+                <div className='w-48 h-screen bg-black'>
+                    <div
+                        style={{ backgroundImage: `url("/images/agent-roll.svg")` }}
+                        className="w-full h-[150%] bg-[length:100%] bg-repeat-y animate-agent-roll-slide"
+                    />
+                </div>
+                <div className='w-48 h-screen bg-black'>
+                    <div
+                        style={{ backgroundImage: `url("/images/film-roll.svg")` }}
+                        className="w-full h-[150%] bg-[length:100%] bg-repeat-y animate-film-roll-slide"
+                    />
+                </div>
+                <div className='w-48 h-screen bg-black'>
+                    <div
+                        style={{ backgroundImage: `url("/images/agent-roll.svg")` }}
+                        className="w-full h-[150%] bg-[length:100%] bg-repeat-y animate-agent-roll-slide"
+                    />
+                </div>
+            </div>
         </div>
     </>
 }

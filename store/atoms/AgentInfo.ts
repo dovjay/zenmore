@@ -1,6 +1,8 @@
 import { atom } from 'recoil'
 
-export const AGNINF_menu = atom({
+type MenuSelector = 'stats' | 'skills' | 'equip'
+
+export const AGNINF_menu = atom<MenuSelector>({
     key: 'AGNINF_menu',
     default: 'stats',
 }); 

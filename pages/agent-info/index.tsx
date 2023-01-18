@@ -3,6 +3,7 @@ import CharaPreview from '../agent-selection/components/chara-preview'
 import BangbooBackground from '../agent-selection/components/bangboo-background'
 import FilmRollBackground from './components/film-roll-background'
 import Menu from './components/menu'
+import LightingBackground from './components/lighting-background'
 
 import CharaStats from './components/chara-stats'
 import CharaSkills from './components/chara-skills'
@@ -22,7 +23,7 @@ export default function AgentSelection() {
     const router = useRouter()
 
     useEffect(() => {
-        if(Object.keys(selectedCharacter).length == 0)
+        if(Object.keys(selectedCharacter).length === 0)
             router.push('/agent-selection')
     }, [])
 
@@ -31,20 +32,15 @@ export default function AgentSelection() {
             <div className='relative h-screen bg-[#000000]'>
                 <div className=''>
                     <BangbooBackground />
+                    <LightingBackground />
                     <FilmRollBackground />
                     <MenuCorner />
                     <CharaPreview charaName={false} />
 
-                    <div className='w-[600px] absolute right-[3%] bottom-[5%]'>
-                        <div className={`${menu == 'stats' ? 'block' : 'hidden'}`}>
-                            <CharaStats />
-                        </div>
-                        <div className={`${menu == 'skills' ? 'block' : 'hidden'}`}>
-                            <CharaSkills />
-                        </div>
-                        <div className={`${menu == 'equip' ? 'block' : 'hidden'}`}>
-                            <CharaEquip />
-                        </div>
+                    <div className='w-1/3 absolute right-20 bottom-0 mb-20'>
+                        { menu === 'stats' && <CharaStats /> }
+                        { menu === 'skills' && <CharaSkills /> }
+                        { menu === 'equip' && <CharaEquip /> }
                         <Menu />
                     </div>
 
