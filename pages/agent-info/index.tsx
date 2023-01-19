@@ -2,7 +2,7 @@ import MenuCorner from '../../components/menu-corner'
 import CharaPreview from '../agent-selection/components/chara-preview'
 import BangbooBackground from '../agent-selection/components/bangboo-background'
 import FilmRollBackground from './components/film-roll-background'
-import Menu from './components/menu'
+import ButtonGroup, { IButtonItem } from '../../components/button-group'
 import LightingBackground from './components/lighting-background'
 
 import CharaStats from './components/chara-stats'
@@ -16,8 +16,22 @@ import { getSelectedCharacter } from '../../store/selectors/AgentSelection'
 
 import { AGNINF_menu } from '../../store/atoms/AgentInfo'
 
-export default function AgentSelection() {
+const buttonGroup: IButtonItem[] = [
+    {
+        buttonName: 'Base Stats',
+        buttonValue: 'stats'
+    },
+    {
+        buttonName: 'Skills',
+        buttonValue: 'skills'
+    },
+    {
+        buttonName: 'Equip',
+        buttonValue: 'equip'
+    }
+]
 
+export default function AgentSelection() {
     let selectedCharacter = useRecoilValue(getSelectedCharacter)
     let menu = useRecoilValue(AGNINF_menu)
     const router = useRouter()
@@ -37,11 +51,13 @@ export default function AgentSelection() {
                     <MenuCorner />
                     <CharaPreview charaName={false} />
 
-                    <div className='w-5/12 absolute right-24 bottom-0 mb-20'>
+                    <div className='w-[48rem] absolute right-24 bottom-20'>
                         { menu === 'stats' && <CharaStats /> }
                         { menu === 'skills' && <CharaSkills /> }
                         { menu === 'equip' && <CharaEquip /> }
-                        <Menu />
+                        <div className='w-full flex justify-center'>
+                            <ButtonGroup buttons={buttonGroup} />
+                        </div>
                     </div>
 
                 </div>
