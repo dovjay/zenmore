@@ -1,10 +1,9 @@
-import { useRecoilState } from 'recoil'
-
-import { AGNINF_menu, MenuSelector } from '../store/atoms/AgentInfo'
+import { useState } from "react"
 
 export interface IButtonItem {
     buttonName: string,
-    buttonValue: string
+    buttonValue: string,
+    onClick: () => void
 }
 
 export interface IButtonGroup {
@@ -39,22 +38,27 @@ function ActiveBackground(props: IActiveBackground) {
 export default function ButtonGroup(props: IButtonGroup) {
     let { buttons } = props
 
-    const [activeMenu, setActiveMenu] = useRecoilState(AGNINF_menu)
+    let [activeButton, setActiveButton] = useState(buttons[0].buttonValue)
+
+    const handleOnClick = (e: any, buttonValue: string) => {
+        setActiveButton(buttonValue)
+        e()
+    }
 
     return (
         <div 
-            className='min-w-[32rem] w-3/4 rounded-full bg-black flex border-4 border-neutral-400 text-xl font-bold italic tracking-wider'
+            className='min-w-[32rem] rounded-full bg-black flex border-4 border-neutral-400/50 text-xl font-bold italic tracking-wider'
         >
             {buttons.map((button, index) => (
                 <button key={index} 
                     className='w-full relative py-2 group' 
-                    onClick={() => setActiveMenu(button.buttonValue as MenuSelector)}
+                    onClick={() => handleOnClick(button.onClick, button.buttonValue)}
                 >
                     <ActiveBackground 
                         position={index === 0 ? 'first' : index === buttons.length-1 ? 'last' : 'mid'}
-                        active={activeMenu === button.buttonValue} 
+                        active={activeButton === button.buttonValue} 
                     />
-                    <span className={`relative ${activeMenu === button.buttonValue ? 'text-black' : 'text-white'}`}>
+                    <span className={`relative ${activeButton === button.buttonValue ? 'text-black' : 'text-white'}`}>
                         {button.buttonName}
                     </span>
                 </button>

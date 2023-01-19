@@ -3,7 +3,7 @@ import Image from "next/image"
 import StatInfo from "./stat-info"
 
 export default function CharaStats() {
-    return <div className="bg-black text-white rounded-[1rem] border-4 border-black w-full h-fit bottom-0 mb-8 overflow-hidden relative">
+    return <div className="bg-black text-white rounded-[1rem] border-4 border-black w-full h-fit bottom-0 mb-8 overflow-hidden relative z-10">
         <div 
             style={{ backgroundImage: `url('/textures/Diagonal Texture 600.png')` }}
             className="absolute w-full h-full opacity-10 bg-[length:24rem]"

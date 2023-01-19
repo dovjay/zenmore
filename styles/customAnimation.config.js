@@ -2,19 +2,19 @@ module.exports = {
   keyframes: {
     bangbooBgSlide: {
       '0%': { 'background-position': '0 0' },
-      '100%': { 'background-position': '-222px 380px'}
+      '100%': { 'background-position': '-333px 0'}
     },
     filmRollSlide: {
       '0%': { 'background-position': '0 0' },
-      '100%': { 'background-position': '0 -115px'}
+      '100%': { 'background-position': '0 115px'}
     },
     agentRollSlide: {
       '0%': { 'background-position': '0 0'},
-      '100%': { 'background-position': '0 1335px' }
+      '100%': { 'background-position': '0 -1335px' }
     },
     agentRollSlide50: {
-      '0%': { 'background-position': '0 365px'},
-      '100%': { 'background-position': '0 1700px' }
+      '0%': { 'background-position': '0 -365px'},
+      '100%': { 'background-position': '0 -1700px' }
     },
     selectButtonSlide: {
       '0%': { 'background-position': '0 50%' },
@@ -26,8 +26,11 @@ module.exports = {
     },
     ringScale: {
       '0%': { 'box-shadow': '0 0 0 .5rem #F6D904' },
-      '50%': { 'box-shadow': '0 0 0 .75rem #F6D904' },
+      '90%': { 'box-shadow': '0 0 0 .75rem #F6D904' },
       '100%': { 'box-shadow': '0 0 0 .5rem #F6D904' },
+    },
+    spinReverse: {
+      'to': { 'transform': 'rotate(-360deg)' }
     }
   },
   animation: {
@@ -37,6 +40,7 @@ module.exports = {
     'bangboo-bg-slide': 'bangbooBgSlide 7s linear infinite',
     'select-button-slide': 'selectButtonSlide 2s linear infinite',
     'news-slide': 'newsSlide 10s linear infinite',
-    'ring-scale': 'ringScale 3s ease-out infinite'
+    'ring-scale': 'ringScale 1s ease-in infinite',
+    'spin-reverse': 'spinReverse 1s linear infinite'
   },
 }

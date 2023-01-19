@@ -1,6 +1,10 @@
-import Image from "next/image"
+interface ICinematicBar {
+  position?: 'bottom',
+  isBlackBar?: boolean,
+  children?: JSX.Element
+}
 
-export default function CinematicBar(props: any) {
+export default function CinematicBar(props: ICinematicBar) {
   let { 
     position,
     isBlackBar,
