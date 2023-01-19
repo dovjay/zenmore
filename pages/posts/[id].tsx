@@ -51,7 +51,7 @@ export default function Post({ postData }: { postData: PostDataInterface }) {
         {title}
       </h1>
       <div 
-        className="prose prose-2xl prose-invert max-w-none mt-8 mb-12 leading-normal"
+        className="prose prose-xl prose-invert max-w-none mt-8 mb-12 leading-normal"
       >
         <MDXRemote {...content} />
       </div>

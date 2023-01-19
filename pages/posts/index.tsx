@@ -17,9 +17,9 @@ export default function GameInfo(props: any) {
 
   const slideDuration = 1000
   const directionClass: string = direction === 'left' 
-    ? `transition duration-${slideDuration} translate-x-[19rem]` 
+    ? `transition duration-${slideDuration} translate-x-[22rem]` 
     : direction === 'right' 
-    ? `transition duration-${slideDuration} -translate-x-[19rem]`  : ''
+    ? `transition duration-${slideDuration} -translate-x-[22rem]`  : ''
 
   const prevPost = () => {
     setDisabled(true)
@@ -73,10 +73,10 @@ export default function GameInfo(props: any) {
       </button>
       <div 
         style={{ WebkitMaskImage: "-webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(15%, rgba(0,0,0,1)), color-stop(85%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)))" }}
-        className={`w-7/12 h-fit overflow-hidden ${disabled && "pointer-events-none"}`}
+        className={`w-3/4 h-fit overflow-hidden ${disabled && "pointer-events-none"}`}
       >
         <div
-          className={`grid grid-flow-col gap-4 content-center justify-center h-[48rem] ${directionClass}`}
+          className={`grid grid-flow-col content-center justify-center h-[48rem] ${directionClass}`}
         >
           {
             displayPosts.map((post: PostDataInterface, index: number) => (
