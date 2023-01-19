@@ -3,13 +3,13 @@ import Image from "next/image"
 import SkillButton from "./skill-button"
 
 export default function CharaSkills() {
-    return <div className="bg-black text-white rounded-[1rem] border-4 border-black w-full h-fit bottom-0 mb-20 overflow-hidden relative">
+    return <div className="bg-black text-white rounded-[1rem] border-4 border-black w-full h-fit bottom-0 mb-8 overflow-hidden relative">
         <div 
             style={{ backgroundImage: `url('/textures/Diagonal Texture 600.png')` }}
             className="absolute w-full h-full opacity-10 bg-[length:24rem]"
         />
         <div className="relative -translate-y-2">
-            <h4 className="ml-8 my-6 font-bold text-md tracking-wider">SKILL INFO</h4>
+        <h4 className="font-bold text-sm ml-8 my-6 tracking-wide">SKILL INFO</h4>
 
             <Image 
                 src="/icons/Loop Icon.png" alt="Loop Icon" 
@@ -40,7 +40,7 @@ export default function CharaSkills() {
                 />
             </section>
 
-            <h4 className="font-bold text-md ml-8 my-6 tracking-wider">TALENT INFO</h4>
+            <h4 className="font-bold text-sm ml-8 my-4 tracking-wide">TALENT INFO</h4>
 
             <section className="w-full flex flex-col items-center p-8">
                 <Image src="/images/talent-button-header.png" alt="Talent Button Header" width={205} height={48} />

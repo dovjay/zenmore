@@ -1,40 +1,20 @@
 import Image from "next/image"
 
+import DiskButton from "./disk-button"
+
 export default function CharaEquip() {
-    return <div className="w-full h-fit bottom-0 mb-20 relative">
-        <Image 
-            src="/images/Disk Container.svg" alt="Disk Container" width={737} height={671} 
-            className="mx-auto"
-        />
-
-        <Image
-            src="/images/Disk.svg" alt="Disk" width={153} height={153}
-            className="absolute top-[2.5rem] left-[10.25rem] rounded-full"
-        />
-
-        <Image
-            src="/images/Disk.svg" alt="Disk" width={153} height={153}
-            className="absolute top-[2.5rem] right-[10.4rem] rounded-full"
-        />
-
-        <Image
-            src="/images/Disk.svg" alt="Disk" width={153} height={153}
-            className="absolute left-[3.8rem] bottom-[16.25rem] rounded-full"
-        />
-
-        <Image
-            src="/images/Disk.svg" alt="Disk" width={153} height={153}
-            className="absolute right-[3.9rem] bottom-[16.25rem] rounded-full"
-        />
-
-        <Image
-            src="/images/Disk.svg" alt="Disk" width={153} height={153}
-            className="absolute bottom-[2.5rem] left-[10.25rem] rounded-full"
-        />
-
-        <Image
-            src="/images/Disk.svg" alt="Disk" width={153} height={153}
-            className="absolute bottom-[2.5rem] right-[10.4rem] rounded-full"
-        />
+    return <div className="w-full h-fit bottom-0 mb-12 relative">
+        <div className="relative w-fit h-fit">
+            <Image 
+                src="/images/Disk Container.svg" alt="Disk Container" width={737} height={671} 
+                className="mx-auto"
+            />
+            <DiskButton position="top-[2.5rem] left-[8.8rem]" />
+            <DiskButton position="top-[2.5rem] right-[9rem]" />
+            <DiskButton position="left-[2.4rem] bottom-[16.25rem]" />
+            <DiskButton position="right-[2.5rem] bottom-[16.25rem]" />
+            <DiskButton position="bottom-[2.5rem] left-[8.8rem]" />
+            <DiskButton position="bottom-[2.5rem] right-[9rem]" />
+        </div>
     </div>
 }

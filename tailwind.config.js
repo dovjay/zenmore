@@ -10,15 +10,19 @@ module.exports = {
       keyframes: {
         bangbooBgSlide: {
           '0%': { 'background-position': '0 0' },
-          '100%': { 'background-position': '-333px 570px'}
+          '100%': { 'background-position': '-222px 380px'}
         },
         filmRollSlide: {
           '0%': { 'background-position': '0 0' },
-          '100%': { 'background-position': '0 -60%'}
+          '100%': { 'background-position': '0 -115px'}
         },
         agentRollSlide: {
-          '0%': { 'background-position': '0% 0%'},
-          '100%': { 'background-position': '0 1140%' } 
+          '0%': { 'background-position': '0 0'},
+          '100%': { 'background-position': '0 1335px' }
+        },
+        agentRollSlide50: {
+          '0%': { 'background-position': '0 365px'},
+          '100%': { 'background-position': '0 1700px' }
         },
         selectButtonSlide: {
           '0%': { 'background-position': '0 50%' },
@@ -30,8 +34,9 @@ module.exports = {
         }
       },
       animation: {
-        'film-roll-slide': 'filmRollSlide 15s linear infinite',
-        'agent-roll-slide': 'agentRollSlide 20s linear infinite',
+        'film-roll-slide': 'filmRollSlide 5s linear infinite',
+        'agent-roll-slide': 'agentRollSlide 10s linear infinite',
+        'agent-roll-slide-50': 'agentRollSlide50 10s linear infinite',
         'bangboo-bg-slide': 'bangbooBgSlide 7s linear infinite',
         'select-button-slide': 'selectButtonSlide 2s linear infinite',
         'news-slide': 'newsSlide 10s linear infinite'

@@ -33,11 +33,11 @@ export default function AgentSelection() {
                 <div className=''>
                     <BangbooBackground />
                     <LightingBackground />
-                    <FilmRollBackground />
+                    <FilmRollBackground tintColor="#65a30d" />
                     <MenuCorner />
                     <CharaPreview charaName={false} />
 
-                    <div className='w-1/3 absolute right-20 bottom-0 mb-20'>
+                    <div className='w-5/12 absolute right-24 bottom-0 mb-20'>
                         { menu === 'stats' && <CharaStats /> }
                         { menu === 'skills' && <CharaSkills /> }
                         { menu === 'equip' && <CharaEquip /> }
