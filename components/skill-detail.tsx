@@ -1,11 +1,11 @@
 import { useRecoilState } from "recoil"
-import { AGNINF_skill_info } from "../../../store/atoms/AgentInfo"
+import { AGNINF_skill_info } from "../store/atoms/AgentInfo"
 import Image from "next/image"
 import ReactMarkdown from "react-markdown"
 
-import DiagonalTexture from "../../../components/diagonal-texture"
-import CinematicBar from "../../../components/cinematic-bar"
-import ButtonGroup, { IButtonItem } from "../../../components/button-group"
+import DiagonalTexture from "./diagonal-texture"
+import CinematicBar from "./cinematic-bar"
+import ButtonGroup, { IButtonItem } from "./button-group"
 
 function SkillTitle(props: ISkillTitle) {
   let { name, type } = props

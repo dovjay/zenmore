@@ -4,10 +4,10 @@ import FilmRollBackground from './components/film-roll-background'
 import ButtonGroup, { IButtonItem } from '../../components/button-group'
 import LightingBackground from './components/lighting-background'
 
-import CharaStats from './components/chara-stats'
+import CharaStats from '../../components/chara-stats'
 import CharaSkills from './components/chara-skills'
 import CharaEquip from './components/chara-equip'
-import SkillDetail from './components/skill-detail'
+import SkillDetail from '../../components/skill-detail'
 
 import Image from 'next/image'
 import { AGNINF_skill_info, AGNINF_menu, AGNINF_agent } from '../../store/atoms/AgentInfo'
