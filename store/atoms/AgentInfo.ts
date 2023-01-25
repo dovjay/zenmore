@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 
 export type MenuSelector = 'stats' | 'skills' | 'equip'
 
-export type SkillSelector = 'basic' | 'special' | 'dodge' | 'combo' | 'talent1' | 'talent2' | 'talent3' | 'talent4' | ''
+export type SkillSelector = 'BASIC' | 'SPECIAL' | 'DODGE' | 'COMBO' | 'TALENT1' | 'TALENT2' | 'TALENT3' | 'TALENT4' | ''
 
 export const AGNINF_menu = atom<MenuSelector>({
     key: 'AGNINF_menu',
@@ -12,4 +12,9 @@ export const AGNINF_menu = atom<MenuSelector>({
 export const AGNINF_skill_info = atom<SkillSelector>({
     key: 'AGINF_skill_info',
     default: ''
+})
+
+export const AGNINF_agent = atom<any>({
+    key: 'AGNINF_agent',
+    default: {}
 })

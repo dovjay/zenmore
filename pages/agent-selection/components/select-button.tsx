@@ -1,17 +1,19 @@
 import { useRouter } from 'next/router'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
 
-import { AGNSLCT_change_chara } from '../../../store/atoms/AgentSelection'
+import { AGNSLCT_change_chara, AGNSLCT_select_alias, AGNSLCT_selected_chara } from '../../../store/atoms/AgentSelection'
 
 export default function SelectButton(){
-
-    let [change_chara, setChangeChara] = useRecoilState(AGNSLCT_change_chara)    
+    let setChangeChara = useSetRecoilState(AGNSLCT_change_chara)
+    let [selectedChara, setSelectedChara] = useRecoilState(AGNSLCT_selected_chara)
+    let charaAlias = useRecoilValue(AGNSLCT_select_alias)
     const router = useRouter()
 
     const onSubmit = () => {
         setChangeChara(true)
+        setSelectedChara(selectedChara)
         setTimeout(() => {
-            router.push('/agent-info')
+            router.push(`/agent-info/${charaAlias}`)
         }, 700)
     }
 

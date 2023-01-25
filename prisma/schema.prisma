@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model Character {
+  id          Int                @id @default(autoincrement())
+  name        String
+  alias       String             @unique
+  fullImage   String?
+  cardImage   String?
+  attack      AttackType[]  
+  element     ElementType[]
+  faction     Faction            @relation(fields: [factionId], references: [id])
+  factionId   Int           
+  baseStat    BaseStat?
+  skills      Skill[]
+}
+
+model Faction {
+  id            Int              @id @default(autoincrement())
+  name          String    
+  alias         String?   
+  imageUrl      String?   
+  characters    Character[]
+}
+
+model BaseStat {
+  id                  Int             @id @default(autoincrement())
+  hp                  Float             @default(0)
+  atk                 Float             @default(0)
+  def                 Float             @default(0)
+  impact              Float             @default(0)
+  critRate            Float             @default(5)
+  critDamage          Float             @default(50)
+  penRatio            Float             @default(0)
+  pen                 Float             @default(0)
+  energyRecovery      Float             @default(0)
+  character           Character       @relation(fields: [characterId], references: [id])
+  characterId         Int             @unique
+}
+
+model Skill {
+  id                  Int             @id @default(autoincrement())
+  type                SkillType
+  name                String?
+  description         String?
+  character           Character       @relation(fields: [characterId], references: [id])
+  characterId         Int             
+}
+
+enum AttackType {
+  SLASH
+  STRIKE
+  PIERCE
+}
+
+enum ElementType {
+  FIRE
+  ICE
+  ELECTRIC
+  WIND
+  PHYSICAL
+}
+
+enum SkillType {
+  BASIC
+  SPECIAL
+  DODGE
+  COMBO
+  TALENT1
+  TALENT2
+  TALENT3
+  TALENT4
+}

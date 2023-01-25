@@ -1,11 +1,11 @@
-import { useRecoilState } from "recoil"
+import { useResetRecoilState, useSetRecoilState } from "recoil"
 import { AGNINF_skill_info } from "../../../store/atoms/AgentInfo"
 import Image from "next/image"
 
 import SkillButton from "./skill-button"
 
 export default function CharaSkills() {
-    let [skillInfo, setSkillInfo] = useRecoilState(AGNINF_skill_info)
+    let setSkillInfo = useSetRecoilState(AGNINF_skill_info)
 
     return <div className="bg-black text-white rounded-[1rem] border-4 border-black w-full h-fit bottom-0 mb-8 overflow-hidden relative">
         <div 
@@ -26,25 +26,25 @@ export default function CharaSkills() {
                     iconSrc="/images/Basic Hi-Res.png" 
                     iconAlt="Basic Attack Icon"
                     buttonName="Basic"
-                    onClick={() => setSkillInfo('basic')}
+                    onClick={() => setSkillInfo('BASIC')}
                 />
                 <SkillButton 
                     iconSrc="/images/Special Hi-Res.png" 
                     iconAlt="Special Attack Icon"
                     buttonName="Special"
-                    onClick={() => setSkillInfo('special')}
+                    onClick={() => setSkillInfo('SPECIAL')}
                 />
                 <SkillButton 
                     iconSrc="/images/Dodge Hi-Res.png" 
                     iconAlt="Dodge Icon"
                     buttonName="Dodge"
-                    onClick={() => setSkillInfo('dodge')}
+                    onClick={() => setSkillInfo('DODGE')}
                 />
                 <SkillButton 
                     iconSrc="/images/QTE Hi-Res.png" 
                     iconAlt="Combo Icon"
                     buttonName="Combo"
-                    onClick={() => setSkillInfo('combo')}
+                    onClick={() => setSkillInfo('COMBO')}
                 />
             </section>
 
@@ -60,7 +60,7 @@ export default function CharaSkills() {
                                 focus:ring-inset focus:ring-4 focus:ring-[#F6D904] focus:text-[#F6D904] 
                                 rounded-l-[2rem] rounded-r-xl
                             `}
-                            onClick={() => setSkillInfo('talent1')}
+                            onClick={() => setSkillInfo('TALENT1')}
                         >
                             1
                         </button>
@@ -70,7 +70,7 @@ export default function CharaSkills() {
                                 focus:ring-inset focus:ring-4 focus:ring-[#F6D904] focus:text-[#F6D904] 
                                 rounded-xl
                             `}
-                            onClick={() => setSkillInfo('talent2')}
+                            onClick={() => setSkillInfo('TALENT2')}
                         >
                             2
                         </button>
@@ -80,7 +80,7 @@ export default function CharaSkills() {
                                 focus:ring-inset focus:ring-4 focus:ring-[#F6D904] focus:text-[#F6D904] 
                                 rounded-xl
                             `}
-                            onClick={() => setSkillInfo('talent3')}
+                            onClick={() => setSkillInfo('TALENT3')}
                         >
                             3
                         </button>
@@ -90,7 +90,7 @@ export default function CharaSkills() {
                                 focus:ring-inset focus:ring-4 focus:ring-[#F6D904] focus:text-[#F6D904] 
                                 rounded-l-xl rounded-r-[2rem]
                             `}
-                            onClick={() => setSkillInfo('talent4')}
+                            onClick={() => setSkillInfo('TALENT4')}
                         >
                             4
                         </button>

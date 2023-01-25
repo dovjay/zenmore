@@ -4,27 +4,28 @@ import CharaPreview from './components/chara-preview'
 import BangbooBackground from './components/bangboo-background'
 import SelectButton from './components/select-button'
 
-import { useRecoilState } from 'recoil'
-import { AGNSLCT_charas, AGNSLCT_change_chara } from '../../store/atoms/AgentSelection'
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import { AGNSLCT_change_chara, AGNSLCT_charas } from '../../store/atoms/AgentSelection'
 import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/router'
-
-import chara_data from './data.json'
+import useSWR from 'swr'
 
 import animationData from '../../public/lottiefiles/Zenmore_Transition.json'
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import axios from 'axios'
+
+const fetcher = (url: string) => axios.get(url).then(r => r.data)
 
 export default function AgentSelection() {
-
-  let [charas, setCharas] = useRecoilState(AGNSLCT_charas)
+  let setCharas = useSetRecoilState(AGNSLCT_charas)
   let [change_chara, setChangeChara] = useRecoilState(AGNSLCT_change_chara)
-  const lottieRef:any = useRef<LottieRefCurrentProps>(null);
-  const router = useRouter()
+  const lottieRef:any = useRef<LottieRefCurrentProps>(null)
   const [show, setShow] = useState(true)
 
+  const { data, error, isLoading } = useSWR('/api/characters', fetcher)
+
   useEffect(() => {
-    setCharas(chara_data.chara)
-  }, [setCharas])
+    if (data) setCharas(data.characters)
+  }, [data, setCharas])
 
   useEffect(() => {
     lottieRef.current?.play();
@@ -38,6 +39,10 @@ export default function AgentSelection() {
       setShow(false)
     }, 400) 
   }, [change_chara, setChangeChara])
+
+  if (error) return <div>Something went wrong! {error.toString()}</div>
+
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <>

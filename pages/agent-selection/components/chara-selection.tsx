@@ -1,11 +1,12 @@
-import {useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { useState } from 'react'
 
-import {AGNSLCT_selected_chara, AGNSLCT_charas, AGNSLCT_change_chara} from '../../../store/atoms/AgentSelection'
+import { AGNSLCT_selected_chara, AGNSLCT_charas, AGNSLCT_select_alias } from '../../../store/atoms/AgentSelection'
 
 export default function CharaSelection(){ 
     let [selectedChara, setSelectedChara] = useRecoilState(AGNSLCT_selected_chara)
     let charas: any = useRecoilValue(AGNSLCT_charas)
+    let setAlias = useSetRecoilState(AGNSLCT_select_alias)
 
     let [hoverNow, setHoverNow] = useState(-1)
  
@@ -19,14 +20,14 @@ export default function CharaSelection(){
                 </svg>
                 <div className="chara-card-container skew-x-[16deg]" onMouseLeave={() => setHoverNow(-1)}>  
                 {
-                    charas.map((chara: any, index: any) => (
+                    charas.map((chara: any, index: number) => (
                         <div className={`chara-card relative mx-[-1.9em] skew-x-[-16deg] ${!chara.empty ? 'cursor-pointer' : ''}`} 
-                            onMouseEnter={() => setHoverNow(index)} key={index} style={{}}
+                            onMouseEnter={() => setHoverNow(index)} key={chara.id}
                             onClick={() => {
                                 setTimeout(() => {
                                     setSelectedChara(index)
+                                    setAlias(chara.alias)
                                 }, 400)
-                                // setChangeChara(true)
                             }}
                         >
                             <div className="clipped"
@@ -38,7 +39,7 @@ export default function CharaSelection(){
                             { chara.empty && 
                                 <div className="clipped absolute top-[8px] left-[12px]"
                                     style={{
-                                        background:`url('${chara.image}') no-repeat center center`,
+                                        background:`url('${chara.cardImage}') no-repeat center center`,
                                         backgroundSize: '100%'
                                     }}
                                 ></div>
@@ -46,7 +47,7 @@ export default function CharaSelection(){
                             { !chara.empty && 
                                 <div className="clipped absolute top-[8px] left-[12px]"
                                     style={{
-                                        background:`url('${chara.image}') no-repeat center top`,
+                                        background:`url('${chara.cardImage}') no-repeat center top`,
                                         backgroundSize: '100%'
                                     }}
                                 >
@@ -60,7 +61,7 @@ export default function CharaSelection(){
                                         >
                                         </div>
                                         <h6 className='mb-0 absolute bottom-[8px] text-right right-[15px] w-[110px] text-white font-[1000] tracking-wide	'>
-                                            { chara.nickname }
+                                            { chara.alias }
                                         </h6>
                                     </div>
                                 </div>

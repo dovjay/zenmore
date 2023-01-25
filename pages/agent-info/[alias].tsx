@@ -1,5 +1,4 @@
 import MenuCorner from '../../components/menu-corner'
-import CharaPreview from '../agent-selection/components/chara-preview'
 import BangbooBackground from '../agent-selection/components/bangboo-background'
 import FilmRollBackground from './components/film-roll-background'
 import ButtonGroup, { IButtonItem } from '../../components/button-group'
@@ -10,21 +9,31 @@ import CharaSkills from './components/chara-skills'
 import CharaEquip from './components/chara-equip'
 import SkillDetail from './components/skill-detail'
 
+import Image from 'next/image'
+import { AGNINF_skill_info, AGNINF_menu, AGNINF_agent } from '../../store/atoms/AgentInfo'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { getSelectedCharacter } from '../../store/selectors/AgentSelection'
+import useSWR from "swr"
+import axios from 'axios'
 
-import { AGNINF_skill_info, AGNINF_menu } from '../../store/atoms/AgentInfo'
+const fetcher = (url: string) => axios.get(url).then(r => r.data)
 
-export default function AgentSelection() {
-    let selectedCharacter = useRecoilValue(getSelectedCharacter)
+export default function AgentInfo() {
+    const router = useRouter()
+    const { alias } = router.query
+    const setAgent = useSetRecoilState(AGNINF_agent)
+
+    const { data, error, isLoading } = useSWR(`/api/characters/${alias}`, fetcher)
+
+    useEffect(() => {
+        if (data) setAgent(data)
+    }, [data, setAgent])
+
     let menu = useRecoilValue(AGNINF_menu)
     let setActiveMenu = useSetRecoilState(AGNINF_menu)
     let skill_info = useRecoilValue(AGNINF_skill_info)
-    const router = useRouter()
     
-
     const buttonGroup: IButtonItem[] = [
         {
             buttonName: 'Base Stats',
@@ -43,10 +52,9 @@ export default function AgentSelection() {
         }
     ]
 
-    useEffect(() => {
-        if(Object.keys(selectedCharacter).length === 0)
-            router.push('/agent-selection')
-    }, [router, selectedCharacter])
+    if (error) return <div>Something went wrong! {error.toString()}</div>
+    
+    if (isLoading) return <div>Loading...</div>
 
     return (
         <div className='relative h-screen bg-black'>
@@ -55,12 +63,18 @@ export default function AgentSelection() {
                 <LightingBackground />
                 <FilmRollBackground tintColor="#65a30d" />
                 <MenuCorner />
-                <CharaPreview charaName={false} />
+
+                <Image 
+                    alt="Chara Preview"  fill 
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw"
+                    className="!absolute h-screen !left-[-10%]" 
+                    src={data.character.fullImage} 
+                />
                 
-                <SkillDetail active={skill_info !== ''} />
+                <SkillDetail active={skill_info !== ''} agentSkill={data.character.skills} />
 
                 <div className='w-[48rem] absolute right-24 bottom-28 z-10'>
-                    { menu === 'stats' && <CharaStats /> }
+                    { menu === 'stats' && <CharaStats agent={data} /> }
                     { menu === 'skills' && <CharaSkills /> }
                     { menu === 'equip' && <CharaEquip /> }
                 </div>

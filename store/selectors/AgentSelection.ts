@@ -1,16 +1,12 @@
-import {selector} from 'recoil';
-import {AGNSLCT_charas, AGNSLCT_selected_chara} from '../atoms/AgentSelection';
+import axios from 'axios';
+import { selector } from 'recoil'
+import { AGNSLCT_selected_chara } from '../atoms/AgentSelection'
 
 export const getSelectedCharacter = selector({
     key: 'getSelectedCharacter',
-    get: ({get}) => {
-        const charas = get(AGNSLCT_charas);
-        const idx = get(AGNSLCT_selected_chara);
-      
-        if(idx == null || idx < 0 || idx >= charas.length){
-            return {}
-        }
-
-        return charas[idx];
+    get: async ({ get }) => {
+        // const characterId = get(AGNSLCT_selected_chara)
+        // const character = await axios.get(`/api/characters/${characterId}`)
+        // return character.data
     },
 });
