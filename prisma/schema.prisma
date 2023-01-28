@@ -19,6 +19,7 @@ model Character {
   cardImage   String?
   attack      AttackType[]  
   element     ElementType[]
+  colorTheme  ColorThemeType     @default(GRAY)
   faction     Faction            @relation(fields: [factionId], references: [id])
   factionId   Int           
   baseStat    BaseStat?
@@ -80,4 +81,14 @@ enum SkillType {
   TALENT2
   TALENT3
   TALENT4
+}
+
+enum ColorThemeType {
+  LIME
+  RED
+  PINK
+  BLUE
+  GRAY_INVERT
+  GRAY
+  AMBER
 }

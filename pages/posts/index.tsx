@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Image from "next/image"
+import Head from "next/head"
 
 import DynamicVideoBackground from "../../components/dynamic/dynamic-video-background"
 import MenuCorner from "../../components/menu-corner"
@@ -60,7 +61,10 @@ export default function GameInfo(props: any) {
     
   }
 
-  return <div>
+  return <>
+    <Head>
+      <title>Zenmore | Game Info</title>
+    </Head>
     <DynamicVideoBackground />
 
     <div className="w-screen h-screen backdrop-blur-md fixed" />
@@ -92,7 +96,7 @@ export default function GameInfo(props: any) {
         <Image src="/icons/Right Arrow.png" alt="Right Arrow" width={100} height={64} />
       </button>
     </div>
-  </div>
+  </>
 }
 
 export async function getStaticProps() {

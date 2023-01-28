@@ -1,13 +1,15 @@
 import { useState } from "react"
+import { SetterOrUpdater, useRecoilState } from "recoil"
 
 export interface IButtonItem {
     buttonName: string,
-    buttonValue: string,
-    onClick: () => void
+    buttonValue: string
 }
 
 export interface IButtonGroup {
-    buttons: IButtonItem[]
+    buttons: IButtonItem[],
+    state: any,
+    setState: SetterOrUpdater<any>,
 }
 
 interface IActiveBackground {
@@ -36,13 +38,13 @@ function ActiveBackground(props: IActiveBackground) {
 }
 
 export default function ButtonGroup(props: IButtonGroup) {
-    let { buttons } = props
+    let { buttons, state, setState } = props
 
-    let [activeButton, setActiveButton] = useState(buttons[0].buttonValue)
+    let [activeButton, setActiveButton] = useState(state)
 
-    const handleOnClick = (e: any, buttonValue: string) => {
+    const handleOnClick = (buttonValue: string) => {
         setActiveButton(buttonValue)
-        e()
+        setState(buttonValue)
     }
 
     return (
@@ -52,7 +54,7 @@ export default function ButtonGroup(props: IButtonGroup) {
             {buttons.map((button, index) => (
                 <button key={index} 
                     className='w-full relative py-2 group' 
-                    onClick={() => handleOnClick(button.onClick, button.buttonValue)}
+                    onClick={() => handleOnClick(button.buttonValue)}
                 >
                     <ActiveBackground 
                         position={index === 0 ? 'first' : index === buttons.length-1 ? 'last' : 'mid'}

@@ -4,17 +4,13 @@ type Charas = {
     name: string,
     alias: string,
     cardImage: string,
-    fullImage: string
+    fullImage: string,
+    colorTheme: string
 }
 
 export const AGNSLCT_selected_chara = atom<number>({
     key: 'AGNSLCT_selected_chara',
     default: 0,
-})
-
-export const AGNSLCT_select_alias = atom<string>({
-    key: 'AGNSLCT_select_alias',
-    default: ''
 })
 
 export const AGNSLCT_charas = atom<Charas[]>({

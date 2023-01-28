@@ -1,12 +1,11 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { useState } from 'react'
 
-import { AGNSLCT_selected_chara, AGNSLCT_charas, AGNSLCT_select_alias } from '../../../store/atoms/AgentSelection'
+import { AGNSLCT_selected_chara, AGNSLCT_charas } from '../../../store/atoms/AgentSelection'
 
 export default function CharaSelection(){ 
     let [selectedChara, setSelectedChara] = useRecoilState(AGNSLCT_selected_chara)
     let charas: any = useRecoilValue(AGNSLCT_charas)
-    let setAlias = useSetRecoilState(AGNSLCT_select_alias)
 
     let [hoverNow, setHoverNow] = useState(-1)
  
@@ -26,7 +25,6 @@ export default function CharaSelection(){
                             onClick={() => {
                                 setTimeout(() => {
                                     setSelectedChara(index)
-                                    setAlias(chara.alias)
                                 }, 400)
                             }}
                         >

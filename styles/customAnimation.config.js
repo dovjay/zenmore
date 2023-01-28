@@ -25,9 +25,9 @@ module.exports = {
       '100%': { 'translate': '-100%' }
     },
     ringScale: {
-      '0%': { 'box-shadow': '0 0 0 .5rem #F6D904' },
-      '90%': { 'box-shadow': '0 0 0 .75rem #F6D904' },
-      '100%': { 'box-shadow': '0 0 0 .5rem #F6D904' },
+      '0%': { 'box-shadow': '0 0 0 .5rem var(--tw-ring-color)' },
+      '90%': { 'box-shadow': '0 0 0 .75rem var(--tw-ring-color)' },
+      '100%': { 'box-shadow': '0 0 0 .5rem var(--tw-ring-color)' },
     },
     spinReverse: {
       'to': { 'transform': 'rotate(-360deg)' }

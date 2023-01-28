@@ -3,6 +3,7 @@ import BangbooBackground from '../agent-selection/components/bangboo-background'
 import FilmRollBackground from './components/film-roll-background'
 import ButtonGroup, { IButtonItem } from '../../components/button-group'
 import LightingBackground from './components/lighting-background'
+import Loading from '../loading'
 
 import CharaStats from '../../components/chara-stats'
 import CharaSkills from './components/chara-skills'
@@ -11,11 +12,12 @@ import SkillDetail from '../../components/skill-detail'
 
 import Image from 'next/image'
 import { AGNINF_skill_info, AGNINF_menu, AGNINF_agent } from '../../store/atoms/AgentInfo'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from "swr"
 import axios from 'axios'
+import Head from 'next/head'
 
 const fetcher = (url: string) => axios.get(url).then(r => r.data)
 
@@ -30,58 +32,57 @@ export default function AgentInfo() {
         if (data) setAgent(data)
     }, [data, setAgent])
 
-    let menu = useRecoilValue(AGNINF_menu)
-    let setActiveMenu = useSetRecoilState(AGNINF_menu)
+    let [activeMenu, setActiveMenu] = useRecoilState(AGNINF_menu)
     let skill_info = useRecoilValue(AGNINF_skill_info)
-    
-    const buttonGroup: IButtonItem[] = [
-        {
-            buttonName: 'Base Stats',
-            buttonValue: 'stats',
-            onClick: () => setActiveMenu('stats')
-        },
-        {
-            buttonName: 'Skills',
-            buttonValue: 'skills',
-            onClick: () => setActiveMenu('skills')
-        },
-        {
-            buttonName: 'Equip',
-            buttonValue: 'equip',
-            onClick: () => setActiveMenu('equip')
-        }
-    ]
 
     if (error) return <div>Something went wrong! {error.toString()}</div>
     
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return <Loading />
 
-    return (
+    return <>
+        <Head>
+            <title>Zenmore | {data.character.name}</title>
+        </Head>
         <div className='relative h-screen bg-black'>
             <div className=''>
                 <BangbooBackground />
                 <LightingBackground />
-                <FilmRollBackground tintColor="#65a30d" />
+                <FilmRollBackground tintColor={data.character.colorTheme} />
                 <MenuCorner />
 
                 <Image 
                     alt="Chara Preview"  fill 
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw"
-                    className="!absolute h-screen !left-[-10%]" 
+                    className="!absolute h-screen !left-[-20%]" 
                     src={data.character.fullImage} 
                 />
                 
                 <SkillDetail active={skill_info !== ''} agentSkill={data.character.skills} />
 
                 <div className='w-[48rem] absolute right-24 bottom-28 z-10'>
-                    { menu === 'stats' && <CharaStats agent={data} /> }
-                    { menu === 'skills' && <CharaSkills /> }
-                    { menu === 'equip' && <CharaEquip /> }
+                    { activeMenu === 'stats' && <CharaStats agent={data} /> }
+                    { activeMenu === 'skills' && <CharaSkills /> }
+                    { activeMenu === 'equip' && <CharaEquip /> }
                 </div>
                 <div className='w-[48rem] absolute right-24 bottom-12 flex justify-center'>
-                    <ButtonGroup buttons={buttonGroup} />
+                    <ButtonGroup buttons={buttonGroup} state={activeMenu} setState={setActiveMenu} />
                 </div>
             </div>
         </div>
-    )
+    </>
 }
+
+const buttonGroup: IButtonItem[] = [
+    {
+        buttonName: 'Base Stats',
+        buttonValue: 'stats'
+    },
+    {
+        buttonName: 'Skills',
+        buttonValue: 'skills'
+    },
+    {
+        buttonName: 'Equip',
+        buttonValue: 'equip'
+    }
+]

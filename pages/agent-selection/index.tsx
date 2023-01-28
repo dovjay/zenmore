@@ -3,11 +3,13 @@ import CharaSelection from './components/chara-selection'
 import CharaPreview from './components/chara-preview'
 import BangbooBackground from './components/bangboo-background'
 import SelectButton from './components/select-button'
+import Loading from '../loading'
 
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { AGNSLCT_change_chara, AGNSLCT_charas } from '../../store/atoms/AgentSelection'
 import { useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
+import Head from 'next/head'
 
 import animationData from '../../public/lottiefiles/Zenmore_Transition.json'
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
@@ -42,10 +44,14 @@ export default function AgentSelection() {
 
   if (error) return <div>Something went wrong! {error.toString()}</div>
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <Loading />
 
   return (
     <>
+      <Head>
+        <title>Zenmore | Agent Selection</title>
+      </Head>
+
       <div className='relative h-screen bg-[#000000] overflow-hidden'>
         <div className=''>
           {

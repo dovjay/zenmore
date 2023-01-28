@@ -1,7 +1,3 @@
-interface IFilmRollBackground {
-    tintColor: string
-}
-
 export default function FilmRollBackground(props: IFilmRollBackground) {
     let { tintColor } = props
 
@@ -10,7 +6,7 @@ export default function FilmRollBackground(props: IFilmRollBackground) {
             <div className="w-fit h-full flex -rotate-[16deg] absolute -left-40 -top-12">
                 <div className={`
                     w-40 h-screen relative
-                    before:content-[""] before:bg-lime-600 before:mix-blend-hard-light 
+                    before:content-[""] ${TintType[tintColor]} 
                     before:absolute before:w-full before:h-[150%]
                 `}>
                     <div
@@ -26,7 +22,7 @@ export default function FilmRollBackground(props: IFilmRollBackground) {
                 </div>
                 <div className={`
                     w-40 h-screen relative
-                    before:content-[""] before:bg-lime-600 before:mix-blend-hard-light 
+                    before:content-[""] ${TintType[tintColor]} 
                     before:absolute before:w-full before:h-[150%]
                 `}>
                     <div
@@ -42,7 +38,7 @@ export default function FilmRollBackground(props: IFilmRollBackground) {
                 </div>
                 <div className={`
                     w-40 h-screen relative
-                    before:content-[""] before:bg-lime-600 before:mix-blend-hard-light 
+                    before:content-[""] ${TintType[tintColor]} 
                     before:absolute before:w-full before:h-[150%]
                 `}>
                     <div
@@ -53,4 +49,20 @@ export default function FilmRollBackground(props: IFilmRollBackground) {
             </div>
         </div>
     </>
+}
+
+interface IFilmRollBackground {
+    tintColor: TintTypeString
+}
+
+type TintTypeString = keyof typeof TintType
+
+enum TintType {
+    LIME = 'chara-tint-lime',
+    RED = 'chara-tint-red',
+    PINK = 'chara-tint-pink',
+    BLUE = 'chara-tint-blue',
+    GRAY_INVERT = 'chara-tint-gray-invert',
+    GRAY = 'chara-tint-gray',
+    AMBER = 'chara-tint-amber'
 }

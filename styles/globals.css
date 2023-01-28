@@ -13,6 +13,41 @@
         scrollbar-width: none;  /* Firefox */
         overflow: scroll;
     }
+
+    .chara-tint-lime::before {
+        background-color: #6aa300;
+        mix-blend-mode: hard-light;
+    }
+
+    .chara-tint-red::before {
+        background-color: #be3421;
+        mix-blend-mode: hard-light;
+    }
+
+    .chara-tint-pink::before {
+        background-color: #af2c4d;
+        mix-blend-mode: hard-light;
+    }
+
+    .chara-tint-blue::before {
+        background-color: #239ca5;
+        mix-blend-mode: hard-light;
+    }
+
+    .chara-tint-gray-invert::before {
+        background-color: #d4d4d4;
+        mix-blend-mode: difference;
+    } 
+
+    .chara-tint-gray::before {
+        background-color: #9e9e9e;
+        mix-blend-mode: hard-light;
+    }
+
+    .chara-tint-amber::before {
+        background-color: #c49c18;
+        mix-blend-mode: hard-light;
+    }
 }
 
 @layer base {

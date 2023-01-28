@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Image from "next/image"
+import Head from "next/head"
 import { useRouter } from "next/router"
 import { MDXRemote } from "next-mdx-remote"
 
@@ -24,39 +25,44 @@ export default function Post({ postData }: { postData: PostDataInterface }) {
     setScrollProgress(progress < 4 ? 4 : progress)
   }
 
-  return <div className="w-screen h-screen flex justify-center">
-    <DynamicVideoBackground />
+  return <>
+    <Head>
+      <title>Zenmore | {title}</title>
+    </Head>
+    <div className="w-screen h-screen flex justify-center">
+      <DynamicVideoBackground />
 
-    <CinematicBar isBlackBar={true}>
-      <div className="flex items-center w-full h-full absolute">
-        <button className="w-fit h-fit ml-auto mr-16" onClick={() => router.push('/posts')}>
-          <Image src='/icons/Close Button.svg' alt="Close Button" width={80} height={60} />
-        </button>
-      </div>
-    </CinematicBar>
+      <CinematicBar isBlackBar={true}>
+        <div className="flex items-center w-full h-full absolute">
+          <button className="w-fit h-fit ml-auto mr-16" onClick={() => router.push('/posts')}>
+            <Image src='/icons/Close Button.svg' alt="Close Button" width={80} height={60} />
+          </button>
+        </div>
+      </CinematicBar>
 
-    <CinematicBar isBlackBar={true} position="bottom" />
+      <CinematicBar isBlackBar={true} position="bottom" />
 
-    <DiagonalTexture />
+      <DiagonalTexture />
 
-    <section
-      onScroll={e => onScroll(e)}
-      style={{ WebkitMaskImage: "-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(10%, rgba(0,0,0,1)), color-stop(90%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)))" }}
-      className="w-1/2 my-36 overflow-scroll-hidden py-4"
-    >
-      <div className="relative w-full h-[32rem] overflow-clip rounded-tr-[5rem] rounded-bl-[5rem] mt-8">
-        <Image src={thumbnail} alt={`${title} Thumbnail`} fill className="object-cover" />
-      </div>
-      <h1 className="text-6xl font-bold mt-12 text-white">
-        {title}
-      </h1>
-      <div 
-        className="prose prose-xl prose-invert max-w-none mt-8 mb-12 leading-normal"
+      <section
+        onScroll={e => onScroll(e)}
+        style={{ WebkitMaskImage: "-webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(10%, rgba(0,0,0,1)), color-stop(90%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)))" }}
+        className="w-1/2 my-36 overflow-scroll-hidden py-4"
       >
-        <MDXRemote {...content} />
-      </div>
-    </section>
-  </div>
+        <div className="relative w-full h-[32rem] overflow-clip rounded-tr-[5rem] rounded-bl-[5rem] mt-8">
+          <Image src={thumbnail} alt={`${title} Thumbnail`} fill className="object-cover" />
+        </div>
+        <h1 className="text-6xl font-bold mt-12 text-white">
+          {title}
+        </h1>
+        <div 
+          className="prose prose-xl prose-invert max-w-none mt-8 mb-12 leading-normal"
+        >
+          <MDXRemote {...content} />
+        </div>
+      </section>
+    </div>
+  </>
 }
 
 export function getStaticPaths() {
