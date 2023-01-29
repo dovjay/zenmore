@@ -39,14 +39,19 @@ export default function SkillDetail(props: ISkillDetail) {
     <CinematicBar position="bottom" isBlackBar />
     
     <section className="w-1/2 h-[72%] text-white z-20 relative translate-y-[20%] left-10 py-8 overflow-scroll-hidden">
-      { agentSkill.filter((skill: any) => skill.type === skillInfo).map((skill: any, index: number) => (
-        <div key={index}>
-          <SkillTitle name={skill.name} type={skill.type} />
-          <div className="prose prose-invert ml-8 text-xl mt-8">
-            <ReactMarkdown components={MarkdownComponent}>{skill.description}</ReactMarkdown>
+      { skillPreview == 'DESCRIPTION' && <div>
+        { agentSkill.filter((skill: any) => skill.type === skillInfo).map((skill: any, index: number) => (
+          <div key={index}>
+            <SkillTitle name={skill.name} type={skill.type} />
+            <div className="prose prose-invert ml-8 text-xl mt-8">
+              <ReactMarkdown components={MarkdownComponent}>{skill.description}</ReactMarkdown>
+            </div>
           </div>
-        </div>
-      )) }
+        )) }
+      </div>}
+      { skillPreview == 'STATS' && <div className="h-full flex">
+          <h1 className="m-auto font-[1000] card-chara-name text-[60px]">COMING SOON</h1>
+      </div> }
     </section>
   </div>
 }

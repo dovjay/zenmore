@@ -17,7 +17,7 @@ export default function CharaSelection(){
                         <path d="M0,0 H0.666 C0.698,0,0.725,0.021,0.733,0.052 L1,1 H0.339 C0.308,1,0.281,0.979,0.272,0.949 L0,0"></path>
                     </clipPath>
                 </svg>
-                <div className="chara-card-container skew-x-[16deg]" onMouseLeave={() => setHoverNow(-1)}>  
+                <div className="chara-card-container skew-x-[16deg] bg-[#000000]" onMouseLeave={() => setHoverNow(-1)}>  
                 {
                     charas.map((chara: any, index: number) => (
                         <div className={`chara-card relative mx-[-1.9em] skew-x-[-16deg] ${!chara.empty ? 'cursor-pointer' : ''}`} 
@@ -58,7 +58,7 @@ export default function CharaSelection(){
                                             style={{ backgroundImage: `url('images/Tint.svg')`, opacity: 0.7 }}
                                         >
                                         </div>
-                                        <h6 className='mb-0 absolute bottom-[8px] text-right right-[15px] w-[110px] text-white font-[1000] tracking-wide	'>
+                                        <h6 className='mb-0 text-[18px] absolute bottom-[8px] text-right right-[15px] w-[110px] text-white font-[1000] tracking-wide card-chara-name'>
                                             { chara.alias }
                                         </h6>
                                     </div>

@@ -9,6 +9,7 @@
 
 .chara-card-container {
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   width: 490px;
   height: 100vh;
@@ -41,4 +42,14 @@
   mix-blend-mode: multiply;
   -webkit-clip-path: url(#select-button-path);
   clip-path: url(#select-button-path);
+}
+
+.chara-card {
+  /* position: absolute; */
+}
+
+.card-chara-name {
+  background: linear-gradient(180deg, rgba(255,255,255,1) 40%, rgba(0,0,0,1) 100%);;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

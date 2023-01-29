@@ -26,13 +26,29 @@ function ActiveBackground(props: IActiveBackground) {
 
     return <>
         {
-            active && <div 
-                className={`
-                    absolute inset-0 w-full h-full -skew-x-[24deg] bg-[#F6D904] 
-                    ring-[#F6D904] animate-ring-scale
-                    ${first} ${mid} ${last}
-                `} 
-            />
+            active && <div >
+                {position == 'first' && <div style={{ right:'13px', top: '0'}}
+                    className={`
+                        absolute  w-full h-full bg-[#F6D904] 
+                        ring-[#F6D904] animate-ring-scale
+                        ${first} ${mid} ${last}
+                    `} 
+                />}
+                {position == 'last' && <div style={{ left:'13px', top: '0'}}
+                    className={`
+                        absolute  w-full h-full bg-[#F6D904] 
+                        ring-[#F6D904] animate-ring-scale
+                        ${first} ${mid} ${last}
+                    `} 
+                />}
+                <div 
+                    className={`
+                        absolute inset-0 w-full h-full -skew-x-[24deg] bg-[#F6D904] 
+                        ring-[#F6D904] animate-ring-scale
+                        ${first} ${mid} ${last}
+                    `} 
+                />
+            </div>
         }
     </> 
 }
