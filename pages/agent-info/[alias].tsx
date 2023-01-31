@@ -32,6 +32,11 @@ export default function AgentInfo() {
         if (data) setAgent(data)
     }, [data, setAgent])
 
+    useEffect(() => {
+        screen.orientation.lock("landscape")
+        console.log(screen.orientation)
+    })
+
     let [activeMenu, setActiveMenu] = useRecoilState(AGNINF_menu)
     let skill_info = useRecoilValue(AGNINF_skill_info)
 
@@ -41,23 +46,23 @@ export default function AgentInfo() {
 
     return <>
         <Head>
-            <title>Zenmore | {data.character.name}</title>
+            <title>Zenmore | {data.character?.name}</title>
         </Head>
         <div className='relative h-screen bg-black'>
             <div className=''>
                 <BangbooBackground />
                 <LightingBackground />
-                <FilmRollBackground tintColor={data.character.colorTheme} />
+                <FilmRollBackground tintColor={data.character?.colorTheme} />
                 <MenuCorner />
 
                 <Image 
                     alt="Chara Preview"  fill 
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw"
                     className="!absolute h-screen !left-[-20%]" 
-                    src={data.character.fullImage} 
+                    src={data.character?.fullImage} 
                 />
                 
-                <SkillDetail active={skill_info !== ''} agentSkill={data.character.skills} />
+                <SkillDetail active={skill_info !== ''} agentSkill={data.character?.skills} />
 
                 <div className='w-[48rem] absolute right-24 bottom-28 z-10'>
                     { activeMenu === 'stats' && <CharaStats agent={data} /> }

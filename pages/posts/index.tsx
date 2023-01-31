@@ -65,37 +65,39 @@ export default function GameInfo(props: any) {
     <Head>
       <title>Zenmore | Game Info</title>
     </Head>
-    <DynamicVideoBackground />
 
-    <div className="w-screen h-screen backdrop-blur-md fixed" />
+    <section className="w-screen h-screen">
+      <div className="w-full h-full backdrop-blur-md fixed" />
+      <DynamicVideoBackground />
 
-    <MenuCorner />
+      <MenuCorner />
 
-    <div className="h-screen w-screen flex justify-center items-center">
-      <button className="z-10" disabled={disabled} onClick={prevPost}>
-        <Image src="/icons/Left Arrow.png" alt="Left Arrow" width={100} height={64} />
-      </button>
-      <div 
-        style={{ WebkitMaskImage: "-webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(15%, rgba(0,0,0,1)), color-stop(85%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)))" }}
-        className={`w-3/4 h-fit overflow-hidden ${disabled && "pointer-events-none"}`}
-      >
-        <div
-          className={`grid grid-flow-col content-center justify-center h-[48rem] ${directionClass}`}
+      <div className="h-full w-full flex justify-center items-center">
+        <button className="z-10" disabled={disabled} onClick={prevPost}>
+          <Image src="/icons/Left Arrow.png" alt="Left Arrow" width={100} height={64} />
+        </button>
+        <div 
+          style={{ WebkitMaskImage: "-webkit-gradient(linear, left top, right top, color-stop(0%, rgba(0,0,0,0)), color-stop(15%, rgba(0,0,0,1)), color-stop(85%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)))" }}
+          className={`w-3/4 h-fit overflow-hidden ${disabled && "pointer-events-none"}`}
         >
-          {
-            displayPosts.map((post: PostDataInterface, index: number) => (
-              <TapeCard 
-                key={post.id + index} postData={post} 
-                active={direction === 'left' ? index === 2 : direction === 'right' ? index === 4 : index === 3} 
-              />
-            ))
-          }
+          <div
+            className={`grid grid-flow-col content-center justify-center h-[48rem] ${directionClass}`}
+          >
+            {
+              displayPosts.map((post: PostDataInterface, index: number) => (
+                <TapeCard 
+                  key={post.id + index} postData={post} 
+                  active={direction === 'left' ? index === 2 : direction === 'right' ? index === 4 : index === 3} 
+                />
+              ))
+            }
+          </div>
         </div>
+        <button className="z-10" disabled={disabled} onClick={nextPost}>
+          <Image src="/icons/Right Arrow.png" alt="Right Arrow" width={100} height={64} />
+        </button>
       </div>
-      <button className="z-10" disabled={disabled} onClick={nextPost}>
-        <Image src="/icons/Right Arrow.png" alt="Right Arrow" width={100} height={64} />
-      </button>
-    </div>
+    </section>
   </>
 }
 

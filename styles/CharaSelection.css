@@ -3,53 +3,12 @@
   width: 200px;
   height: 200px;
   background-size: cover;
-  -webkit-clip-path: url(#my-clip-path);
-  clip-path: url(#my-clip-path);
+  -webkit-clip-path: url(#chara-card-clip-path);
+  clip-path: url(#chara-card-clip-path);
 }
-
-.chara-card-container {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
-  width: 490px;
-  height: 100vh;
-  /* flex-direction: column; */
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* width */
-.chara-card-container::-webkit-scrollbar {
-  width: 0px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-} 
  
 .clipped-select-button {  
   mix-blend-mode: multiply;
   -webkit-clip-path: url(#select-button-path);
   clip-path: url(#select-button-path);
-}
-
-.chara-card {
-  /* position: absolute; */
-}
-
-.card-chara-name {
-  background: linear-gradient(180deg, rgba(255,255,255,1) 40%, rgba(0,0,0,1) 100%);;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
