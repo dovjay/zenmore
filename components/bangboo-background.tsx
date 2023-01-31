@@ -1,4 +1,4 @@
-import bangbooTileBackground from '../../../public/images/bangboo-tile-background.svg'
+import bangbooTileBackground from '../public/images/bangboo-tile-background.svg'
 
 export default function BangbooBackground() {
     return <>

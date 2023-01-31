@@ -1,5 +1,5 @@
 import { useResetRecoilState, useSetRecoilState } from "recoil"
-import { AGNINF_skill_info } from "../../../store/atoms/AgentInfo"
+import { AGNINF_skill_info } from "../store/atoms/AgentInfo"
 import Image from "next/image"
 
 import SkillButton from "./skill-button"

@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import StatInfo from "../pages/agent-info/components/stat-info"
+import StatInfo from "./stat-info"
 import AttackElementIcon from "./attack-element-icon"
 
 export default function CharaStats(props: any) {

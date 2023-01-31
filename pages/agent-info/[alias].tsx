@@ -1,13 +1,13 @@
 import MenuCorner from '../../components/menu-corner'
-import BangbooBackground from '../agent-selection/components/bangboo-background'
-import FilmRollBackground from './components/film-roll-background'
+import BangbooBackground from '../../components/bangboo-background'
+import FilmRollBackground from '../../components/film-roll-background'
 import ButtonGroup, { IButtonItem } from '../../components/button-group'
-import LightingBackground from './components/lighting-background'
+import LightingBackground from '../../components/lighting-background'
 import Loading from '../loading'
 
 import CharaStats from '../../components/chara-stats'
-import CharaSkills from './components/chara-skills'
-import CharaEquip from './components/chara-equip'
+import CharaSkills from '../../components/chara-skills'
+import CharaEquip from '../../components/chara-equip'
 import SkillDetail from '../../components/skill-detail'
 
 import Image from 'next/image'

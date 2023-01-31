@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
 
-import { AGNSLCT_change_chara, AGNSLCT_selected_chara, AGNSLCT_charas } from '../../../store/atoms/AgentSelection'
+import { AGNSLCT_change_chara, AGNSLCT_selected_chara, AGNSLCT_charas } from '../store/atoms/AgentSelection'
 
 export default function SelectButton(){
     let setChangeChara = useSetRecoilState(AGNSLCT_change_chara)

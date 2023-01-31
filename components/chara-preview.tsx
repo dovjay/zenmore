@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil'
-import { AGNSLCT_charas, AGNSLCT_selected_chara } from '../../../store/atoms/AgentSelection'
+import { AGNSLCT_charas, AGNSLCT_selected_chara } from '../store/atoms/AgentSelection'
 import Image from "next/image"
 
 export default function CharaPreview(props:any){

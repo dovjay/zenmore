@@ -1,8 +1,8 @@
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { useState } from 'react'
 
-import { Clamp } from '../../../lib/math'
-import { AGNSLCT_selected_chara, AGNSLCT_charas } from '../../../store/atoms/AgentSelection'
+import { Clamp } from '../lib/math'
+import { AGNSLCT_selected_chara, AGNSLCT_charas } from '../store/atoms/AgentSelection'
 import CharaCard, { CardClipPath } from './chara-card'
 
 // Change this value to precisely set the limit of scrolling height

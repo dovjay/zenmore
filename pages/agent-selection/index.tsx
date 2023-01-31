@@ -1,8 +1,8 @@
 import MenuCorner from '../../components/menu-corner'
-import CharaSelection from './components/chara-selection'
-import CharaPreview from './components/chara-preview'
-import BangbooBackground from './components/bangboo-background'
-import SelectButton from './components/select-button'
+import CharaSelection from '../../components/chara-selection'
+import CharaPreview from '../../components/chara-preview'
+import BangbooBackground from '../../components/bangboo-background'
+import SelectButton from '../../components/select-button'
 import Loading from '../loading'
 
 import { useRecoilState, useSetRecoilState } from 'recoil'
