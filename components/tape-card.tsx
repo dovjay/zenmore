@@ -42,10 +42,10 @@ export default function TapeCard(props: TapeCardInterface) {
     router.push(`/posts/${postData.id}`)
   }
 
-  let activeClass: string = active ? 'scale-125 mx-8 z-20 group cursor-pointer' : 'z-10 cursor-default mx-8'
+  let activeClass: string = active ? 'scale-125 z-20 group cursor-pointer' : 'z-10 cursor-default'
 
   return <div 
-    className={`relative w-[18rem] h-[32rem] ${activeClass} transition duration-1000`}
+    className={`relative w-[300px] h-[530px] ${activeClass} mx-8 transition duration-1000 portable:w-[100px] portable:h-[180px] portable:mx-4`}
     onMouseEnter={() => setHover(true)}
     onMouseLeave={() => setHover(false)}
     onClick={goToArticle}

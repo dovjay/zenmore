@@ -49,6 +49,11 @@
         mix-blend-mode: hard-light;
     }
 
+    .tape-cover-clip {
+        -webkit-clip-path: url(#tape-cover-clip-path);
+        clip-path: url(#tape-cover-clip-path);
+    }
+
     @media screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
         .w-screen {
             width: 100vh;
