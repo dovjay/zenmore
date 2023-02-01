@@ -14,7 +14,7 @@ export default function CinematicBar(props: ICinematicBar) {
   let positionClass: string = position === 'bottom' ? 'bottom-0' : ''
   let blackBarClass: string = isBlackBar ? 'bg-black' : 'bg-black/75'
 
-  return <div className={`absolute w-screen min-h-[6.5rem] ${positionClass} ${blackBarClass}`}>
+  return <div className={`absolute w-screen min-h-[6.5rem] ${positionClass} ${blackBarClass} portable:min-h-[1.5rem]`}>
     {
       !isBlackBar &&
       <div

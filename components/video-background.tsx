@@ -55,7 +55,7 @@ export default function VideoBackground(props: any) {
   {
     displayInframe
     ? (
-    <div className="text-white text-2xl absolute right-8 bottom-32">
+    <div className="text-white text-2xl absolute right-8 bottom-32 portable:bottom-[5.5rem] portable:right-4 portable:text-lg">
       <span className="">in frame </span>
       <span className="font-bold">{videoData[currentIndex].name}</span>
     </div>

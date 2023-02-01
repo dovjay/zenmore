@@ -14,6 +14,9 @@ module.exports = {
       fontFamily: {
         'display': ['Oswald', 'display'],
         'rocksalt': ['Rock Salt', 'display']
+      },
+      screens: {
+        'portable': { 'raw': '(orientation: portrait) or (max-width: 1200px)' }
       }
     },
   },
