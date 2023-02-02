@@ -22,30 +22,30 @@ export default function TapeCover() {
         className={`
           w-32 h-[110%] absolute rotate-[40deg] 
           translate-x-[5.5rem] translate-y-[1.5rem] 
-          overflow-hidden portable:w-12
-          portable:translate-x-8 portable:-translate-y-0
+          overflow-hidden mobile:w-12
+          mobile:translate-x-8 mobile:-translate-y-0
         `}
       >
         <div 
           style={{ backgroundImage: `url('${ctx.postData?.thumbnail}')` }}
           className="-rotate-[40deg] bg-[length:250%] bg-top w-[300%] h-full g-no-repeat -translate-x-[6rem] -top-4 absolute"
         />
-        <div className="-rotate-[40deg] w-[20rem] h-[14.5rem] bg-black absolute bottom-0 portable:h-[10rem]" />
-        <div className="h-full w-1 bg-black absolute top-10 right-10 portable:-top-10 portable:right-8 portable:w-[2px]" />
-        <div className="h-full w-1 bg-black absolute top-10 right-[5.25rem] portable:-top-10 portable:right-[16px] portable:w-[2px]" />
+        <div className="-rotate-[40deg] w-[20rem] h-[14.5rem] bg-black absolute bottom-0 mobile:h-[10rem]" />
+        <div className="h-full w-1 bg-black absolute top-10 right-10 mobile:-top-10 mobile:right-8 mobile:w-[2px]" />
+        <div className="h-full w-1 bg-black absolute top-10 right-[5.25rem] mobile:-top-10 mobile:right-[16px] mobile:w-[2px]" />
       </div>
-      <div className="absolute mx-6 mt-4 portable:mt-3 portable:mx-2">
+      <div className="absolute mx-6 mt-4 mobile:mt-3 mobile:mx-2">
         <TwImage 
-          className="w-[44px] h-[48px] portable:h-[16px] portable:w-[14px]"
+          className="w-[44px] h-[48px] mobile:h-[16px] mobile:w-[14px]"
           src="/ZZZ Logo.png" alt="ZZZ Logo"
         />
-        <h2 className="text-white text-3xl font-bold font-display uppercase mt-4 leading-normal portable:text-[11px] portable:mt-1">
+        <h2 className="text-white text-3xl font-bold font-display uppercase mt-4 leading-normal mobile:text-[11px] mobile:mt-1">
           {ctx.postData?.title}
         </h2>
       </div>
 
-      <div className="absolute bottom-8 h-16 overflow-hidden portable:bottom-3 portable:h-8">
-        <p className="text-white/50 text-sm font-medium mx-6 leading-normal portable:text-[7px] portable:mx-2">
+      <div className="absolute bottom-8 h-16 overflow-hidden mobile:bottom-3 mobile:h-8">
+        <p className="text-white/50 text-sm font-medium mx-6 leading-normal mobile:text-[7px] mobile:mx-2">
           {ctx.postData?.description}
         </p>
       </div>

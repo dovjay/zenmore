@@ -16,7 +16,7 @@ module.exports = {
         'rocksalt': ['Rock Salt', 'display']
       },
       screens: {
-        'portable': { 'raw': '(orientation: portrait) or (max-width: 1200px)' }
+        'mobile': { 'raw': '(max-width: 640px) or (max-height: 640px)' }
       }
     },
   },

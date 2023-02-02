@@ -18,11 +18,11 @@ export default function Home() {
       <CinematicBar>
         <div className='flex items-center h-full px-8 py-4'>
           <TwImage 
-            className='h-[64px] w-[52px] portable:h-[30px] portable:w-[26px]'
+            className='h-[64px] w-[52px] mobile:h-[30px] mobile:w-[26px]'
             src="/ZZZ Logo.png" alt="ZZZ Logo"
           />
-          <h1 className='ml-8 text-4xl font-bold font-display text-white portable:text-xl'>ZENMORE</h1>
-          <button className='ml-auto text-3xl text-white font-bold portable:text-lg'>Support Us!</button>
+          <h1 className='ml-8 text-4xl font-bold font-display text-white mobile:text-xl'>ZENMORE</h1>
+          <button className='ml-auto text-3xl text-white font-bold mobile:text-lg'>Support Us!</button>
         </div>
       </CinematicBar>
 
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </CinematicBar>
       
-      <footer className='text-white text-center text-md fixed bottom-0 bg-black w-screen portable:text-sm'>
+      <footer className='text-white text-center text-md fixed bottom-0 bg-black w-screen mobile:text-sm'>
         <span>
           Copyright © COGNOSPHERE  |  Created by Re:Noir
         </span>

@@ -45,7 +45,7 @@ export default function TapeCard(props: TapeCardInterface) {
   let activeClass: string = active ? 'scale-125 z-20 group cursor-pointer' : 'z-10 cursor-default'
 
   return <div 
-    className={`relative w-[300px] h-[530px] ${activeClass} mx-8 transition duration-1000 portable:w-[100px] portable:h-[180px] portable:mx-4`}
+    className={`relative w-[300px] h-[530px] ${activeClass} mx-8 transition duration-1000 mobile:w-[100px] mobile:h-[180px] mobile:mx-4`}
     onMouseEnter={() => setHover(true)}
     onMouseLeave={() => setHover(false)}
     onClick={goToArticle}

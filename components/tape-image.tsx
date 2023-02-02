@@ -19,8 +19,8 @@ export default function TapeImage() {
       <div className="my-auto w-full mr-3 rotate-90">
         <span className={`
           w-3/4 h-32 font-rocksalt text-xl font-bold leading-relaxed 
-          block mt-4 ml-12 overflow-hidden portable:text-[8px]
-          portable:h-12 portable:ml-6 portable:mt-0
+          block mt-4 ml-12 overflow-hidden mobile:text-[8px]
+          mobile:h-12 mobile:ml-6 mobile:mt-0
         `}>
           {ctx.postData?.title}
         </span>
