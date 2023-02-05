@@ -26,11 +26,12 @@ function ActiveBackground(props: IActiveBackground) {
 
     return <>
         {
-            active && <div >
+            active && <div>
                 {position == 'first' && <div style={{ right:'13px', top: '0'}}
                     className={`
                         absolute  w-full h-full bg-[#F6D904] 
                         ring-[#F6D904] animate-ring-scale
+                        mobile:animate-ring-scale-mobile
                         ${first} ${mid} ${last}
                     `} 
                 />}
@@ -38,6 +39,7 @@ function ActiveBackground(props: IActiveBackground) {
                     className={`
                         absolute  w-full h-full bg-[#F6D904] 
                         ring-[#F6D904] animate-ring-scale
+                        mobile:animate-ring-scale-mobile
                         ${first} ${mid} ${last}
                     `} 
                 />}
@@ -45,6 +47,7 @@ function ActiveBackground(props: IActiveBackground) {
                     className={`
                         absolute inset-0 w-full h-full -skew-x-[24deg] bg-[#F6D904] 
                         ring-[#F6D904] animate-ring-scale
+                        mobile:animate-ring-scale-mobile
                         ${first} ${mid} ${last}
                     `} 
                 />
@@ -65,18 +68,25 @@ export default function ButtonGroup(props: IButtonGroup) {
 
     return (
         <div 
-            className='min-w-[32rem] rounded-full bg-black flex border-4 border-neutral-400/50 text-xl font-bold italic tracking-wider'
+            className={`
+                min-w-[32rem] rounded-full bg-black flex border-4
+                border-neutral-400/50 text-xl font-bold italic 
+                tracking-wider mobile:min-w-[20rem]
+            `}
         >
             {buttons.map((button, index) => (
                 <button key={index} 
-                    className='w-full relative py-2 group' 
+                    className='w-full relative py-2 group mobile:py-0' 
                     onClick={() => handleOnClick(button.buttonValue)}
                 >
                     <ActiveBackground 
                         position={index === 0 ? 'first' : index === buttons.length-1 ? 'last' : 'mid'}
                         active={activeButton === button.buttonValue} 
                     />
-                    <span className={`relative ${activeButton === button.buttonValue ? 'text-black' : 'text-white'}`}>
+                    <span className={`
+                        relative mobile:text-[12px]
+                        ${activeButton === button.buttonValue ? 'text-black' : 'text-white'}
+                    `}>
                         {button.buttonName}
                     </span>
                 </button>

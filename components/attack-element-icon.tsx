@@ -1,11 +1,15 @@
-import Image from "next/image"
+import TwImage from "./tw-image"
 
 export default function AttackElementIcon(props: IAttackElementIcon) {
   let { icons } = props
 
-  return <div className="flex gap-4">
+  return <div className="grid grid-flow-col justify-start gap-4 mobile:gap-2">
     {icons.map((icon: IconTypeString, index: number) => (
-      <Image src={IconType[icon]} alt="Icon" width={36} height={36} key={index} />
+      <TwImage
+        src={IconType[icon]} alt="Icon"
+        className="w-[36px] h-[36px] mobile:w-[24px] mobile:h-[24px]"
+        key={index}
+      />
     ))}
   </div>
 }

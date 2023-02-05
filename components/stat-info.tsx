@@ -8,14 +8,21 @@ export default function StatInfo(props: IStatInfo) {
   const { statName, statValue, empty } = props
 
   if (empty) {
-    return <div className="bg-black flex gap-4 text-white/20 text-lg font-bold px-6 py-1 rounded-full items-center">
+    return <div className={`
+      bg-black flex gap-4 text-white/20 text-lg 
+      font-bold px-6 py-1 rounded-full items-center
+      mobile:text-[10px] mobile:px-3 mobile:py-0
+    `}>
       <hr className="w-full border-x-4 border-white/20" />
       <span className="font-display">EMPTY</span>
       <hr className="w-full border-x-4 border-white/20" />
     </div> 
   }
 
-  return <div className="bg-black flex text-white text-xl font-bold px-6 py-1 rounded-full">
+  return <div className={`
+  bg-black flex text-white text-xl font-bold px-6 py-1 rounded-full 
+    mobile:text-[10px] mobile:px-3 mobile:py-0
+  `}>
     <span>{statName}</span>
     <span className="ml-auto">{statValue}</span>
   </div>

@@ -29,6 +29,11 @@ module.exports = {
       '90%': { 'box-shadow': '0 0 0 .75rem var(--tw-ring-color)' },
       '100%': { 'box-shadow': '0 0 0 .5rem var(--tw-ring-color)' },
     },
+    ringScaleMobile: {
+      '0%': { 'box-shadow': '0 0 0 .25rem var(--tw-ring-color)' },
+      '90%': { 'box-shadow': '0 0 0 .5rem var(--tw-ring-color)' },
+      '100%': { 'box-shadow': '0 0 0 .25rem var(--tw-ring-color)' },
+    },
     spinReverse: {
       'to': { 'transform': 'rotate(-360deg)' }
     }
@@ -40,7 +45,8 @@ module.exports = {
     'bangboo-bg-slide': 'bangbooBgSlide 7s linear infinite',
     'select-button-slide': 'selectButtonSlide 2s linear infinite',
     'news-slide': 'newsSlide 10s linear infinite',
-    'ring-scale': 'ringScale 1s ease-in infinite',
+    'ring-scale': 'ringScale .7s ease-in infinite',
+    'ring-scale-mobile': 'ringScaleMobile .7s ease-in infinite',
     'spin-reverse': 'spinReverse 1s linear infinite'
   },
 }

@@ -32,11 +32,6 @@ export default function AgentInfo() {
         if (data) setAgent(data)
     }, [data, setAgent])
 
-    useEffect(() => {
-        screen.orientation.lock("landscape")
-        console.log(screen.orientation)
-    })
-
     let [activeMenu, setActiveMenu] = useRecoilState(AGNINF_menu)
     let skill_info = useRecoilValue(AGNINF_skill_info)
 
@@ -58,18 +53,18 @@ export default function AgentInfo() {
                 <Image 
                     alt="Chara Preview"  fill 
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 50vw"
-                    className="!absolute h-screen !left-[-20%]" 
+                    className="!absolute h-screen !left-[-20%] mobile:!left-[-24%]" 
                     src={data.character?.fullImage} 
                 />
                 
-                <SkillDetail active={skill_info !== ''} agentSkill={data.character?.skills} />
+                {/* <SkillDetail active={skill_info !== ''} agentSkill={data.character?.skills} /> */}
 
-                <div className='w-[48rem] absolute right-24 bottom-28 z-10'>
+                <div className='w-[48rem] absolute right-24 bottom-28 z-10 mobile:w-[24rem] mobile:right-12 mobile:bottom-8'>
                     { activeMenu === 'stats' && <CharaStats agent={data} /> }
                     { activeMenu === 'skills' && <CharaSkills /> }
                     { activeMenu === 'equip' && <CharaEquip /> }
                 </div>
-                <div className='w-[48rem] absolute right-24 bottom-12 flex justify-center'>
+                <div className='w-[48rem] absolute right-24 bottom-12 flex justify-center mobile:w-[24rem] mobile:bottom-3 mobile:right-12'>
                     <ButtonGroup buttons={buttonGroup} state={activeMenu} setState={setActiveMenu} />
                 </div>
             </div>

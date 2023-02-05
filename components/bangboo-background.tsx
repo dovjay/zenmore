@@ -6,7 +6,11 @@ export default function BangbooBackground() {
             <div className='w-full h-full -rotate-[5deg]'>
                 <div 
                     style={{ backgroundImage: `url(${bangbooTileBackground.src})` }}
-                    className="animate-bangboo-bg-slide w-[200%] h-[200%] -translate-x-[10%] -translate-y-[45%] bg-repeat bg-[length:333px_570px]"
+                    className={`
+                        animate-bangboo-bg-slide w-[200%] h-[200%] 
+                        -translate-x-[10%] -translate-y-[45%] bg-repeat 
+                        bg-[length:333px_570px] mobile:bg-[length:166px_285px]
+                    `}
                 />
             </div>
         </div>
