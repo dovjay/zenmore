@@ -18,7 +18,7 @@ module.exports = {
     },
     selectButtonSlide: {
       '0%': { 'background-position': '0 50%' },
-      '100%': { 'background-position': '-100% 50%'}
+      '100%': { 'background-position': '-66px 50%'}
     },
     newsSlide: {
       '0%': { 'translate': '24rem' },

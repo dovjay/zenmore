@@ -1,14 +1,11 @@
 
 .clipped {
-  width: 200px;
-  height: 200px;
   background-size: cover;
   -webkit-clip-path: url(#chara-card-clip-path);
   clip-path: url(#chara-card-clip-path);
 }
  
-.clipped-select-button {  
-  mix-blend-mode: multiply;
+.clipped-select-button {
   -webkit-clip-path: url(#select-button-path);
   clip-path: url(#select-button-path);
 }

@@ -20,6 +20,15 @@ module.exports = {
       }
     },
   },
+  safelist: [
+    'chara-tint-lime',
+    'chara-tint-red',
+    'chara-tint-pink',
+    'chara-tint-blue',
+    'chara-tint-gray-invert',
+    'chara-tint-gray',
+    'chara-tint-amber',
+  ],
   plugins: [
     require("@tailwindcss/typography")
   ],

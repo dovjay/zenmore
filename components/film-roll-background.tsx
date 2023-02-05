@@ -1,3 +1,5 @@
+import { TintType, TintTypeString } from "../lib/TintType"
+
 export default function FilmRollBackground(props: IFilmRollBackground) {
     let { tintColor } = props
 
@@ -53,16 +55,4 @@ export default function FilmRollBackground(props: IFilmRollBackground) {
 
 interface IFilmRollBackground {
     tintColor: TintTypeString
-}
-
-type TintTypeString = keyof typeof TintType
-
-enum TintType {
-    LIME = 'chara-tint-lime',
-    RED = 'chara-tint-red',
-    PINK = 'chara-tint-pink',
-    BLUE = 'chara-tint-blue',
-    GRAY_INVERT = 'chara-tint-gray-invert',
-    GRAY = 'chara-tint-gray',
-    AMBER = 'chara-tint-amber'
 }
