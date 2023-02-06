@@ -68,7 +68,7 @@ export default function SelectButton(){
                 {/* Tint Button */}
                 <div
                     className={`
-                        ${TintType[charas[selectedChara]?.colorTheme as TintTypeString]}
+                        ${TintType[charas[selectedChara].colorTheme as TintTypeString]}
                         before:content-[''] before:w-full before:h-full before:absolute before:inset-0
                     `}
                 />

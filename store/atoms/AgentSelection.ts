@@ -8,6 +8,14 @@ type Charas = {
     colorTheme: string
 }
 
+const defaultCharas: Charas = {
+    name: '',
+    alias: '',
+    cardImage: '',
+    fullImage: '',
+    colorTheme: ''
+}
+
 export const AGNSLCT_selected_chara = atom<number>({
     key: 'AGNSLCT_selected_chara',
     default: 0,
@@ -15,7 +23,7 @@ export const AGNSLCT_selected_chara = atom<number>({
 
 export const AGNSLCT_charas = atom<Charas[]>({
     key : 'AGNSLCT_charas',
-    default: []
+    default: [defaultCharas]
 })
 
 export const AGNSLCT_change_chara = atom<boolean>({
