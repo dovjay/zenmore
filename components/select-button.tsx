@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
 
 import { AGNSLCT_change_chara, AGNSLCT_selected_chara, AGNSLCT_charas } from '../store/atoms/AgentSelection'
-import { TintType, TintTypeString } from "../lib/TintType"
 import TwImage from './tw-image'
 
 export default function SelectButton(){
@@ -76,3 +75,15 @@ export default function SelectButton(){
         </>
     )
 } 
+
+export type TintTypeString = keyof typeof TintType
+
+export enum TintType {
+    LIME = 'chara-tint-lime',
+    RED = 'chara-tint-red',
+    PINK = 'chara-tint-pink',
+    BLUE = 'chara-tint-blue',
+    GRAY_INVERT = 'chara-tint-gray-invert',
+    GRAY = 'chara-tint-gray',
+    AMBER = 'chara-tint-amber'
+}
