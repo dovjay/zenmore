@@ -22,7 +22,7 @@ export default function CharaCard(props: ICharaCard) {
       className={`relative -mx-4 my-2 skew-x-[-16deg] h-fit ${charaClass} mobile:my-0 mobile:-mx-4`}
     >
       <div className={`
-        absolute clipped -left-[7px] -top-1 transition-all duration-300 
+        absolute clipped -left-[7px] -top-1 transition-all duration-300
         w-[214px] h-[210px] mobile:w-[107px] mobile:h-[105px]
         mobile:left-[-3.5px] mobile:top-[-2.5px]
       `}

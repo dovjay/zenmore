@@ -56,7 +56,7 @@ export default function AgentSelection() {
         <div className=''>
           {
             show && <div>
-              <SelectButton charas={data.characters} />
+              <SelectButton />
               <CharaSelection />
             </div>
           }

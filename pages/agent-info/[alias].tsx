@@ -47,7 +47,7 @@ export default function AgentInfo() {
             <div className=''>
                 <BangbooBackground />
                 <LightingBackground />
-                <FilmRollBackground tintColor={data.character.colorTheme} />
+                <FilmRollBackground tintColor={data.character?.colorTheme} />
                 <MenuCorner />
 
                 <Image 
