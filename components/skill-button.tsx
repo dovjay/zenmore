@@ -1,4 +1,4 @@
-import Image from "next/image"
+import TwImage from "./tw-image"
 
 interface ISkillButton {
   iconSrc: string,
@@ -13,18 +13,18 @@ export default function SkillButton(props: ISkillButton) {
   return <button 
     className={`
       rounded-2xl border-[.4rem] border-gray-500 bg-[#161616] overflow-clip w-full
-      focus:border-[#F6D904] transition duration-300
+      focus:border-[#F6D904] transition duration-300 mobile:border-[.25rem]
+      mobile:rounded-xl
     `}
     onClick={onClick}
   >
-    <Image 
-        src={iconSrc} alt={iconAlt} 
-        width={128} height={128} 
-        className="my-2 mx-auto"
+    <TwImage
+      src={iconSrc} alt={iconAlt} 
+      className="my-2 mx-auto w-[128px] h-[128px] mobile:w-[48px] mobile:h-[48px]"
     />
 
-    <div className="bg-black w-full text-center p-4">
-        <span className="font-extrabold text-2xl italic">
+    <div className="bg-black w-full text-center p-4 mobile:p-1">
+        <span className="font-extrabold text-2xl italic mobile:text-sm">
           {buttonName}
         </span>
     </div>

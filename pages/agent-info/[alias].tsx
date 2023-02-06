@@ -57,7 +57,7 @@ export default function AgentInfo() {
                     src={data.character?.fullImage} 
                 />
                 
-                {/* <SkillDetail active={skill_info !== ''} agentSkill={data.character?.skills} /> */}
+                <SkillDetail active={skill_info !== ''} agentSkill={data.character?.skills} />
 
                 <div className='w-[48rem] absolute right-24 bottom-28 z-10 mobile:w-[24rem] mobile:right-12 mobile:bottom-8'>
                     { activeMenu === 'stats' && <CharaStats agent={data} /> }

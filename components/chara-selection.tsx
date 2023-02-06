@@ -15,7 +15,6 @@ export default function CharaSelection(){
         let minScroll: number = e.currentTarget.scrollHeight * .25
         let maxScroll: number = e.currentTarget.scrollHeight * .4
 
-        console.log(e.currentTarget.clientHeight)
         let scrollY: number = Clamp(e.currentTarget.scrollTop, minScroll, maxScroll)
         e.currentTarget.scrollTo(0, scrollY)
     }

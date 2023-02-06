@@ -7,7 +7,7 @@ export default function AttackElementIcon(props: IAttackElementIcon) {
     {icons.map((icon: IconTypeString, index: number) => (
       <TwImage
         src={IconType[icon]} alt="Icon"
-        className="w-[36px] h-[36px] mobile:w-[24px] mobile:h-[24px]"
+        className="w-[36px] h-[36px] mobile:w-[20px] mobile:h-[20px]"
         key={index}
       />
     ))}
