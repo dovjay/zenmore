@@ -19,23 +19,6 @@
         clip-path: url(#tape-cover-clip-path);
     }
 
-    @media screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
-        .w-screen {
-            width: 100vh;
-        }
-        .h-screen {
-            height: 100vw;
-        }
-    }
-}
-
-@layer base {
-    html {
-        scroll-behavior: smooth;
-    }
-}
-
-@layer components {
     .chara-tint-lime::before {
         background-color: #6aa300;
         mix-blend-mode: hard-light;
@@ -69,6 +52,21 @@
     .chara-tint-amber::before {
         background-color: #c49c18;
         mix-blend-mode: hard-light;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
+        .w-screen {
+            width: 100vh;
+        }
+        .h-screen {
+            height: 100vw;
+        }
+    }
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
     }
 }
 

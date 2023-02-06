@@ -1,14 +1,15 @@
 import { useRouter } from 'next/router'
-import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 
-import { AGNSLCT_change_chara, AGNSLCT_selected_chara, AGNSLCT_charas } from '../store/atoms/AgentSelection'
+import { AGNSLCT_change_chara, AGNSLCT_selected_chara } from '../store/atoms/AgentSelection'
 import { TintType, TintTypeString } from "../lib/TintType"
 import TwImage from './tw-image'
 
-export default function SelectButton(){
+export default function SelectButton(props: any){
+    let { charas } = props
+
     let setChangeChara = useSetRecoilState(AGNSLCT_change_chara)
     let [selectedChara, setSelectedChara] = useRecoilState(AGNSLCT_selected_chara)
-    let charas = useRecoilValue(AGNSLCT_charas)
     const router = useRouter()
 
     const onSubmit = () => {
@@ -68,7 +69,7 @@ export default function SelectButton(){
                 {/* Tint Button */}
                 <div
                     className={`
-                        ${TintType[charas[selectedChara]?.colorTheme as TintTypeString]}
+                        ${TintType[charas[selectedChara].colorTheme as TintTypeString]}
                         before:content-[''] before:w-full before:h-full before:absolute before:inset-0
                     `}
                 />
