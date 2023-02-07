@@ -14,7 +14,7 @@ export default function MenuLinkCard(props: any) {
   >
     <div className="my-auto mobile:my-2">
       <TwImage
-        className="w-[40px] h-[36px] mobile:w-[22px] mobile:h-[20px]"
+        className="w-[40px] h-[40px] mobile:w-[22px] mobile:h-[22px]"
         src={icon} alt={`${name} icon`}
       />
     </div>

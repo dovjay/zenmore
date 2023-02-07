@@ -21,8 +21,15 @@ export default function Home() {
             className='h-[64px] w-[52px] mobile:h-[30px] mobile:w-[26px]'
             src="/ZZZ Logo.png" alt="ZZZ Logo"
           />
-          <h1 className='ml-8 text-4xl font-bold font-display text-white mobile:text-xl'>ZENMORE</h1>
-          <button className='ml-auto text-3xl text-white font-bold mobile:text-lg'>Support Us!</button>
+          <h1 className='ml-8 text-4xl font-bold font-display text-white mobile:text-xl'>
+            ZENMORE
+          </h1>
+          <a 
+            className='ml-auto text-3xl text-white font-bold mobile:text-lg hover:animate-pulse'
+            href='https://ko-fi.com/dovjay' target='_blank' rel='noreferrer'
+          >
+            Support Us!
+          </a>
         </div>
       </CinematicBar>
 

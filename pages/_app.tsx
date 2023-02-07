@@ -2,15 +2,29 @@ import '../styles/globals.css'
 import '../styles/CharaSelection.css'
 
 import type { AppProps } from 'next/app'
-import React from 'react'
+import React, { ReactElement, ReactNode } from 'react'
+import { NextPage } from 'next'
 import { RecoilRoot } from 'recoil'
 
-export default function App({ Component, pageProps }: AppProps) {
-  return(
-    <div className="">
-      <RecoilRoot>
+import Layout from '../components/layout'
+
+export type NextPageWithLayout<P = {}, IP = P>   = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  // use the layout defined at the page level, if available
+  const getLayout = Component.getLayout ?? ((page) => page)
+
+  return getLayout(
+    <RecoilRoot>
+      <Layout>
         <Component {...pageProps} />
-      </RecoilRoot>
-    </div>
+      </Layout>
+    </RecoilRoot>
   )
 }
