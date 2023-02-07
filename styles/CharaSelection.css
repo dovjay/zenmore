@@ -1,58 +1,11 @@
 
 .clipped {
-  width: 200px;
-  height: 200px;
   background-size: cover;
-  -webkit-clip-path: url(#my-clip-path);
-  clip-path: url(#my-clip-path);
+  -webkit-clip-path: url(#chara-card-clip-path);
+  clip-path: url(#chara-card-clip-path);
 }
-
-.chara-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 490px;
-  height: 100vh;
-  /* flex-direction: column; */
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* width */
-.chara-card-container::-webkit-scrollbar {
-  width: 0px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-/* @keyframes bangboo-column-animation {
-  from {
-      background-color: blue;
-      left: var(--left, 0%);
-  }
-  to {
-      background-color: red;
-      left: -200px;
-  }
-} */
-
-.bangboo-column-background { 
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 1000px; */
-  /* animation: bangboo-column-animation 20s linear;
-  animation-iteration-count: infinite; */
-
+ 
+.clipped-select-button {
+  -webkit-clip-path: url(#select-button-path);
+  clip-path: url(#select-button-path);
 }

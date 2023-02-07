@@ -2,7 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    scroll-behavior: smooth;
+@layer utilities {
+    .overflow-scroll-hidden::-webkit-scrollbar {
+        display: none;
+        overflow: scroll;
+    }
+
+    .overflow-scroll-hidden {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        overflow: scroll;
+    }
+
+    .tape-cover-clip {
+        -webkit-clip-path: url(#tape-cover-clip-path);
+        clip-path: url(#tape-cover-clip-path);
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
+        .w-screen {
+            width: 100vh;
+        }
+        .h-screen {
+            height: 100vw;
+        }
+    }
 }
 
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+.chara-tint-lime::before {
+    background-color: #6aa300;
+    mix-blend-mode: hard-light;
+}
+
+.chara-tint-red::before {
+    background-color: #be3421;
+    mix-blend-mode: hard-light;
+}
+
+.chara-tint-pink::before {
+    background-color: #af2c4d;
+    mix-blend-mode: hard-light;
+}
+
+.chara-tint-blue::before {
+    background-color: #239ca5;
+    mix-blend-mode: hard-light;
+}
+
+.chara-tint-gray-invert::before {
+    background-color: #d4d4d4;
+    mix-blend-mode: difference;
+} 
+
+.chara-tint-gray::before {
+    background-color: #9e9e9e;
+    mix-blend-mode: hard-light;
+}
+
+.chara-tint-amber::before {
+    background-color: #c49c18;
+    mix-blend-mode: hard-light;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1024px) and (orientation: portrait) {
+    html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+}
