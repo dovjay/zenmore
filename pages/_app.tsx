@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import React, { ReactElement, ReactNode } from 'react'
 import { NextPage } from 'next'
 import { RecoilRoot } from 'recoil'
+import { Analytics } from '@vercel/analytics/react'
 
 import Layout from '../components/layout'
 
@@ -25,6 +26,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      <Analytics />
     </RecoilRoot>
   )
 }
